@@ -88,6 +88,7 @@ class IntroScreen extends StatelessWidget {
               child: Center(
                 child: Container(
                     padding: const EdgeInsets.all(20),
+                    margin: EdgeInsets.only(right: 5, left: 5),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
                       color: const Color.fromARGB(255, 244, 250, 251),
@@ -103,7 +104,7 @@ class IntroScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width / 2 + 40,
+                          width: MediaQuery.of(context).size.width / 2 + 30,
                         ),
                         const Text(
                           "->",

@@ -60,7 +60,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                 )
               ],
-            )
+            ),
+            // SABICARE Your All-in-one ENT App
           ],
         ),
       )),
