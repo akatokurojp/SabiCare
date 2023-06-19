@@ -13,8 +13,8 @@ class IntroScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 93, 169, 192),
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 8.0, top: 10),
@@ -39,14 +39,14 @@ class IntroScreen extends StatelessWidget {
                     width: 300),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 100.0,
-                right: 100.0,
-                top: 20,
-                bottom: 10,
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.only(
+            //     left: 100.0,
+            //     right: 100.0,
+            //     top: 20,
+            //     bottom: 1,
+            //   ),
+            // ),
 
             // we deliver groceries at your doorstep
             Container(
