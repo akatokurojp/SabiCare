@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:sabicare/forgot.dart';
+import 'package:sabicare/register.dart';
+import 'Controllers/authcontroller.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -102,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                           'Forgot Password?',
                           style: TextStyle(
                             color: Colors.blue,
-                            fontWeight: bold,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
