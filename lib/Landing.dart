@@ -36,7 +36,7 @@ class IntroScreen extends StatelessWidget {
                 Lottie.network(
                     'https://assets8.lottiefiles.com/packages/lf20_bwnb4x2t.json',
                     height: 500,
-                    width: 300),
+                    width: 350),
               ],
             ),
             // Padding(
@@ -52,7 +52,7 @@ class IntroScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(5.0),
                 child: Text(
                   'Make your life healthier!',
                   textAlign: TextAlign.center,
@@ -87,20 +87,34 @@ class IntroScreen extends StatelessWidget {
               },
               child: Center(
                 child: Container(
-                  padding: const EdgeInsets.all(24),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    color: const Color.fromARGB(255, 244, 250, 251),
-                  ),
-                  child: const Text(
-                    "Get Started                                                         ->",
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 93, 169, 192),
-                      // fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: const Color.fromARGB(255, 244, 250, 251),
                     ),
-                  ),
-                ),
+                    child: Row(
+                      children: [
+                        const Text(
+                          "Get Started",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 93, 169, 192),
+                            // fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 2 + 40,
+                        ),
+                        const Text(
+                          "->",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 93, 169, 192),
+                            // fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        )
+                      ],
+                    )),
               ),
             ),
 
