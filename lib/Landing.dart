@@ -17,7 +17,7 @@ class IntroScreen extends StatelessWidget {
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 8.0, top: 10),
+              padding: const EdgeInsets.only(left: 8.0, top: 20),
               child: Text(
                 'SABICARE',
                 textAlign: TextAlign.center,
@@ -35,18 +35,18 @@ class IntroScreen extends StatelessWidget {
               children: [
                 Lottie.network(
                     'https://assets8.lottiefiles.com/packages/lf20_bwnb4x2t.json',
-                    height: 500,
+                    height: 450,
                     width: 350),
               ],
             ),
-            // Padding(
-            //   padding: const EdgeInsets.only(
-            //     left: 100.0,
-            //     right: 100.0,
-            //     top: 20,
-            //     bottom: 1,
-            //   ),
-            // ),
+            Padding(
+              padding: EdgeInsets.only(
+                left: 100.0,
+                right: 100.0,
+                top: 20,
+                bottom: MediaQuery.of(context).size.height / 25,
+              ),
+            ),
 
             // we deliver groceries at your doorstep
             Container(
