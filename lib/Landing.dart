@@ -79,7 +79,7 @@ class IntroScreen extends StatelessWidget {
                       return FadeTransition(
                         opacity: animation,
                         child:
-                            ExpertSystemDemo(), // Replace with the destination page widget
+                            HomePage(), // Replace with the destination page widget
                       );
                     },
                   ),
