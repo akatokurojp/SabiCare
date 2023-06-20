@@ -48,6 +48,7 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(bottom: 10),
             ), // space between leading avatar and options
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // avatar row for options
                 Padding(padding: EdgeInsets.all(5)),
