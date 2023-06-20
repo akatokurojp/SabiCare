@@ -20,6 +20,33 @@ class _HomePageState extends State<HomePage> {
           children: [
             Padding(padding: EdgeInsets.all(20)),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  padding: EdgeInsets.only(
+                    left: 20,
+                  ),
+                ),
+                CircleAvatar(
+                  backgroundColor: Colors.black,
+                  child:
+                      Icon(Icons.account_circle_rounded, color: Colors.white),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 10),
+                  child: Text(
+                    "Morning, Akato",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'quicksand'), //import quicksand font
+                  ),
+                )
+              ],
+            ), // space between leading avatar and options
+            Container(
+              padding: EdgeInsets.only(bottom: 10),
+            ), // space between leading avatar and options
+            Row(
               children: [
                 // avatar row
                 Padding(padding: EdgeInsets.all(5)),
