@@ -28,16 +28,16 @@ class _BottomPageState extends State<BottomPage> {
       body: _pages[_selectedIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.white, width: 2),
+          border: Border.all(color: Colors.white, width: 2.5),
           borderRadius: BorderRadius.only(
-            topRight: Radius.circular(30),
-            topLeft: Radius.circular(30),
+            topRight: Radius.circular(15),
+            topLeft: Radius.circular(15),
           ),
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30.0),
-            topRight: Radius.circular(30.0),
+            topLeft: Radius.circular(3015),
+            topRight: Radius.circular(3015),
           ),
           child: BottomNavigationBar(
             selectedItemColor: Colors.black,

@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:lit_ui_kit/lit_ui_kit.dart';
 import 'package:sabicare/register.dart';
+import 'package:sabicare/static/colors.dart';
 
 import 'Controllers/authcontroller.dart';
 
@@ -18,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     AuthController authController = AuthController();
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 93, 169, 192),
+      backgroundColor: bgColor,
       body: SafeArea(
         child: ListView(
           children: [
@@ -28,13 +29,13 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(top: 50),
+                    padding: EdgeInsets.only(top: 25),
                   ),
                   Text(
                     "Let's get you set up!",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 40,
+                        fontSize: 35,
                         color: Colors.white,
                         fontFamily: 'quicksand'),
                   ),
@@ -59,10 +60,19 @@ class _LoginPageState extends State<LoginPage> {
                               child: TextField(
                                 controller: authController.loginEmailController,
                                 decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: "Input Your Email Here",
-                                  icon: Icon(Icons.account_circle),
-                                ),
+                                    border: InputBorder.none,
+                                    hintText: "Input Your Email Here",
+                                    labelText: "Username",
+                                    labelStyle: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                    icon: Icon(Icons.account_circle_rounded,
+                                        color: bgColor),
+                                    focusedBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(color: bgColor)),
+                                    enabledBorder: UnderlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: bgColor))),
                               ),
                             ),
                           ],
@@ -77,7 +87,18 @@ class _LoginPageState extends State<LoginPage> {
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Password",
-                                icon: Icon(Icons.key)),
+                                labelText: "Password",
+                                labelStyle: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                                icon: Icon(
+                                  Icons.key,
+                                  color: bgColor,
+                                ),
+                                focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: bgColor)),
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: bgColor))),
                           ),
                         ),
                         //forgot password
@@ -86,16 +107,22 @@ class _LoginPageState extends State<LoginPage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              GestureDetector(
-                                onTap: (() {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => RegisterPage()));
-                                }),
-                                child: Text(
-                                  'Forgot Password?',
-                                  style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold,
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 15, bottom: 10),
+                                child: GestureDetector(
+                                  onTap: (() {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                RegisterPage()));
+                                  }),
+                                  child: Text(
+                                    'Forgot Password?',
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -108,6 +135,27 @@ class _LoginPageState extends State<LoginPage> {
 
                   SizedBox(
                     height: 15,
+                  ),
+                  //button sign in
+                  GestureDetector(
+                    onTap: () {
+                      authController.loginUser();
+                    },
+                    child: Container(
+                        decoration: BoxDecoration(
+                            color: Color(0xff457B9D),
+                            borderRadius: BorderRadius.circular(22)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Center(
+                              child: Text(
+                            "Sign in",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                            ),
+                          )),
+                        )),
                   ),
                   SizedBox(
                     height: 30,
@@ -125,7 +173,8 @@ class _LoginPageState extends State<LoginPage> {
                               ))),
                       Text(
                         "or",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                       Expanded(
                           child: Container(
@@ -168,31 +217,9 @@ class _LoginPageState extends State<LoginPage> {
                   //   ),
                   // ),
 
-                  SizedBox(
-                    height: 80,
-                  ),
-
-                  //button sign in
-                  GestureDetector(
-                    onTap: () {
-                      authController.loginUser();
-                    },
-                    child: Container(
-                        decoration: BoxDecoration(
-                            color: Color(0xff695CFE),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Center(
-                              child: Text(
-                            "Sign in",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                            ),
-                          )),
-                        )),
-                  ),
+                  // SizedBox(
+                  //   height: 80,
+                  // ),
 
                   SizedBox(
                     height: 30,
@@ -202,7 +229,7 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("I don't have an account yet?",
-                          style: TextStyle(fontSize: 17)),
+                          style: TextStyle(fontSize: 17, color: textcolor)),
                       SizedBox(
                         width: 5,
                       ),
@@ -215,8 +242,7 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         child: Text(
                           "Sign up",
-                          style:
-                              TextStyle(fontSize: 17, color: Color(0xff695CFE)),
+                          style: TextStyle(fontSize: 17, color: linkColor),
                         ),
                       ),
                     ],
