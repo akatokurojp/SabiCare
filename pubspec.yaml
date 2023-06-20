@@ -43,6 +43,7 @@ dependencies:
   local_auth: ^2.1.6
   auth: ^8.2.0+2
   lit_ui_kit: ^1.4.0
+  flutter_tts: ^3.7.0
 
 dev_dependencies:
   flutter_test:
