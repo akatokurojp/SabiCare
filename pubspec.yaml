@@ -44,6 +44,8 @@ dependencies:
   auth: ^8.2.0+2
   lit_ui_kit: ^1.4.0
   flutter_tts: ^3.7.0
+  avatar_glow: ^2.0.2
+  speech_to_text: ^6.1.1
 
 dev_dependencies:
   flutter_test:
