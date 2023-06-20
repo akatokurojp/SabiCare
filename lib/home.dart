@@ -138,21 +138,22 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       CircleAvatar(
                         radius: 16,
-                        backgroundColor: Colors.black,
+                        backgroundColor: Colors.white,
                         child: Text(' '),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           "SABICARE",
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 20, color: Colors.white),
                         ),
                       )
                     ],
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 5),
-                    child: Text("Your all-in-one ENT app"),
+                    child: Text("Your all-in-one ENT app",
+                        style: TextStyle(color: Colors.white)),
                   )
                 ],
               ),
