@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
           child: SafeArea(
         child: ListView(
           children: [
-            Padding(padding: EdgeInsets.all(20)), // top padding
+            Padding(padding: EdgeInsets.all(15)), // top padding
             Row(
               // row for avatar and text
               mainAxisAlignment: MainAxisAlignment.start,

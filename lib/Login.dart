@@ -168,54 +168,93 @@ class _LoginPageState extends State<LoginPage> {
                           child: Container(
                               margin: EdgeInsets.only(right: 10.0),
                               child: Divider(
-                                color: Colors.black,
+                                color: textcolor,
                                 thickness: 2,
                               ))),
                       Text(
                         "or",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: textcolor),
                       ),
                       Expanded(
                           child: Container(
                               margin: EdgeInsets.only(left: 10.0),
                               child: Divider(
-                                color: Colors.black,
+                                color: textcolor,
                                 thickness: 2,
                               ))),
                     ],
                   ),
-
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                        //google
+                        onTap: () {},
+                        child: Container(
+                            decoration: BoxDecoration(
+                                color: textcolor,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Center(
+                                  child: Text(
+                                "Google",
+                                style: TextStyle(
+                                  color: bgColor,
+                                  fontSize: 18,
+                                ),
+                              )),
+                            )),
+                      ),
+                      GestureDetector(
+                        //Facebook
+                        onTap: () {},
+                        child: Container(
+                            decoration: BoxDecoration(
+                                color: textcolor,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Center(
+                                  child: Text(
+                                "Facebook",
+                                style: TextStyle(
+                                  color: bgColor,
+                                  fontSize: 18,
+                                ),
+                              )),
+                            )),
+                      ),
+                      GestureDetector(
+                        //twitter
+                        onTap: () {},
+                        child: Container(
+                            decoration: BoxDecoration(
+                                color: textcolor,
+                                borderRadius: BorderRadius.circular(12)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Center(
+                                  child: Text(
+                                "Twitter",
+                                style: TextStyle(
+                                  color: bgColor,
+                                  fontSize: 18,
+                                ),
+                              )),
+                            )),
+                      ),
+                    ],
+                  ),
                   SizedBox(
                     height: 80,
                   ),
-
-                  //sign with google
-                  // Container(
-                  //   decoration: BoxDecoration(
-                  //       color: Colors.white,
-                  //       border: Border.all(color: Colors.black),
-                  //       borderRadius: BorderRadius.circular(10)),
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-                  //     child: Row(
-                  //       children: [
-                  //         Image(
-                  //           image: AssetImage("lib/assets/icons/google.png"),
-                  //           height: 30,
-                  //           width: 30,
-                  //         ),
-                  //         Padding(
-                  //           padding: const EdgeInsets.only(left: 40.0),
-                  //           child: Text(
-                  //             "Continue with Google",
-                  //             style: TextStyle(fontSize: 18),
-                  //           ),
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
 
                   // SizedBox(
                   //   height: 80,
