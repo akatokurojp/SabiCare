@@ -59,12 +59,15 @@ class _HomePageState extends State<HomePage> {
                             bottom: 3, top: 5, right: 10, left: 10),
                         child: CircleAvatar(
                           radius: 32,
-                          backgroundColor: Colors.black,
+                          backgroundColor: Colors.white,
                           child: Text('Self '),
                         ),
                       ),
-                      Text("Self"),
-                      Text("Diagnose")
+                      Text(
+                        "Self",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text("Diagnose", style: TextStyle(color: Colors.white))
                     ],
                   ),
                   // onTap: () => ,
@@ -77,12 +80,12 @@ class _HomePageState extends State<HomePage> {
                             bottom: 3, top: 5, right: 10, left: 10),
                         child: CircleAvatar(
                           radius: 32,
-                          backgroundColor: Colors.black,
+                          backgroundColor: Colors.white,
                           child: Text('Appt'),
                         ),
                       ),
-                      Text("Set an"),
-                      Text("Appointment")
+                      Text("Set an", style: TextStyle(color: Colors.white)),
+                      Text("Appointment", style: TextStyle(color: Colors.white))
                     ],
                   ),
                   // onTap: () => ,
@@ -95,12 +98,12 @@ class _HomePageState extends State<HomePage> {
                             bottom: 3, top: 5, right: 10, left: 10),
                         child: CircleAvatar(
                           radius: 32,
-                          backgroundColor: Colors.black,
+                          backgroundColor: Colors.white,
                           child: Text('Chat'),
                         ),
                       ),
-                      Text("Chat"),
-                      Text("with Doctor")
+                      Text("Chat", style: TextStyle(color: Colors.white)),
+                      Text("with Doctor", style: TextStyle(color: Colors.white))
                     ],
                   ),
                   // onTap: () => ,
@@ -113,18 +116,47 @@ class _HomePageState extends State<HomePage> {
                             bottom: 3, top: 5, right: 10, left: 10),
                         child: CircleAvatar(
                           radius: 32,
-                          backgroundColor: Colors.black,
+                          backgroundColor: Colors.white,
                           child: Text('ftr'),
                         ),
                       ),
-                      Text("All"),
-                      Text("Features")
+                      Text("All", style: TextStyle(color: Colors.white)),
+                      Text("Features", style: TextStyle(color: Colors.white))
                     ],
                   ),
                   // onTap: () => ,
                 ),
               ],
             ),
+            Padding(padding: EdgeInsets.all(10)),
+            Padding(
+              padding: const EdgeInsets.only(left: 25),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 16,
+                        backgroundColor: Colors.black,
+                        child: Text(' '),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "SABICARE",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      )
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 5),
+                    child: Text("Your all-in-one ENT app"),
+                  )
+                ],
+              ),
+            )
             // SABICARE Your All-in-one ENT App
           ],
         ),
