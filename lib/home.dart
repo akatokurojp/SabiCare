@@ -40,7 +40,8 @@ class _HomePageState extends State<HomePage> {
                     "Morning, ",
                     style: TextStyle(
                         fontSize: 18,
-                        fontFamily: 'quicksand'), //import quicksand font
+                        fontFamily: 'quicksand',
+                        color: Colors.white), //import quicksand font
                   ),
                 )
               ],
@@ -168,12 +169,31 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Get Expert anytime, anywhere!",
+                      const Text("Get Expert anytime, anywhere!",
                           style: TextStyle(fontSize: 25)),
-                      Text(
+                      const Text(
                         "Introducing our Chatbot with Expert System: Your personalized Patients Education Assistant",
                         style: TextStyle(fontSize: 14, fontFamily: 'quicksand'),
-                      )
+                      ),
+                      Padding(padding: EdgeInsets.only(top: 14)),
+                      Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                        Padding(
+                            padding: EdgeInsets.only(top: 1, right: 1),
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStatePropertyAll(
+                                      Colors.blueGrey)),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(right: 32, left: 32),
+                                child: Text(
+                                  "Start now!",
+                                  style: TextStyle(fontSize: 15),
+                                ),
+                              ),
+                              onPressed: () {},
+                            ))
+                      ])
                     ]),
               ),
             ),
@@ -181,10 +201,38 @@ class _HomePageState extends State<HomePage> {
               height: 200,
               width: 200,
               child: LitElevatedCard(
-                child: Text("Test"),
                 borderRadius: BorderRadius.circular(12),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text("Easy Appointment booking with SABICARE",
+                          style: TextStyle(fontSize: 25)),
+                      const Text(
+                        "SABICARE: Book ENT appointment easy, fast, and hassle-free",
+                        style: TextStyle(fontSize: 14, fontFamily: 'quicksand'),
+                      ),
+                      Padding(padding: EdgeInsets.only(top: 14)),
+                      Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                        Padding(
+                            padding: EdgeInsets.only(top: 1, right: 1),
+                            child: ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStatePropertyAll(
+                                      Colors.blueGrey)),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(right: 32, left: 32),
+                                child: Text(
+                                  "Book now!",
+                                  style: TextStyle(fontSize: 15),
+                                ),
+                              ),
+                              onPressed: () {},
+                            ))
+                      ])
+                    ]),
               ),
-            )
+            ),
           ],
         ),
       )),
