@@ -3,6 +3,7 @@ import 'package:sabicare/Landing.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:sabicare/bottom.dart';
 import 'package:sabicare/home.dart';
+import 'package:sabicare/static/colors.dart';
 
 import 'Login.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // primarySwatch: Colors.blue
-        canvasColor: Color.fromARGB(255, 93, 169, 192),
+        canvasColor: bgColor,
       ),
       home: BottomPage(),
     );
