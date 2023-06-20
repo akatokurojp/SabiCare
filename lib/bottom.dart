@@ -24,26 +24,37 @@ class _BottomPageState extends State<BottomPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.white,
-        backgroundColor: Color.fromARGB(255, 93, 169, 192),
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        elevation: 0,
-        currentIndex: _selectedIndex,
-        onTap: _navigateBottomBar,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.calculate_outlined), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.camera_alt_outlined), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline), label: 'Home'),
-        ],
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(0.1),
+          border: Border(
+            top: BorderSide(
+              color: Colors.white,
+              width: 3.0,
+            ),
+          ),
+        ),
+        child: BottomNavigationBar(
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.white,
+          backgroundColor: Color.fromARGB(255, 93, 169, 192),
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          elevation: 0,
+          currentIndex: _selectedIndex,
+          onTap: _navigateBottomBar,
+          type: BottomNavigationBarType.fixed,
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home_outlined), label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.calculate_outlined), label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.camera_alt_outlined), label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person_outline), label: 'Home'),
+          ],
+        ),
       ),
     );
   }
