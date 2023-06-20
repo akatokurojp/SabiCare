@@ -51,42 +51,78 @@ class _HomePageState extends State<HomePage> {
               children: [
                 // avatar row for options
                 Padding(padding: EdgeInsets.all(5)),
-                Padding(
-                  padding:
-                      EdgeInsets.only(bottom: 5, top: 5, right: 10, left: 10),
-                  child: CircleAvatar(
-                    radius: 32,
-                    backgroundColor: Colors.black,
-                    child: const Text('Self '),
+                GestureDetector(
+                  child: Column(
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            bottom: 3, top: 5, right: 10, left: 10),
+                        child: CircleAvatar(
+                          radius: 32,
+                          backgroundColor: Colors.black,
+                          child: Text('Self '),
+                        ),
+                      ),
+                      Text("Self"),
+                      Text("Diagnose")
+                    ],
                   ),
+                  // onTap: () => ,
                 ),
-                Padding(
-                  padding:
-                      EdgeInsets.only(bottom: 5, top: 5, right: 10, left: 10),
-                  child: CircleAvatar(
-                    radius: 32,
-                    backgroundColor: Colors.black,
-                    child: const Text('set appt'),
+                GestureDetector(
+                  child: Column(
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            bottom: 3, top: 5, right: 10, left: 10),
+                        child: CircleAvatar(
+                          radius: 32,
+                          backgroundColor: Colors.black,
+                          child: Text('Appt'),
+                        ),
+                      ),
+                      Text("Set an"),
+                      Text("Appointment")
+                    ],
                   ),
+                  // onTap: () => ,
                 ),
-                Padding(
-                  padding:
-                      EdgeInsets.only(bottom: 5, top: 5, right: 10, left: 10),
-                  child: CircleAvatar(
-                    radius: 32,
-                    backgroundColor: Colors.brown.shade800,
-                    child: const Text('chat'),
+                GestureDetector(
+                  child: Column(
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            bottom: 3, top: 5, right: 10, left: 10),
+                        child: CircleAvatar(
+                          radius: 32,
+                          backgroundColor: Colors.black,
+                          child: Text('Chat'),
+                        ),
+                      ),
+                      Text("Chat"),
+                      Text("with Doctor")
+                    ],
                   ),
+                  // onTap: () => ,
                 ),
-                Padding(
-                  padding:
-                      EdgeInsets.only(bottom: 5, top: 5, right: 10, left: 10),
-                  child: CircleAvatar(
-                    radius: 32,
-                    backgroundColor: Colors.brown.shade800,
-                    child: const Text('All ftr'),
+                GestureDetector(
+                  child: Column(
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            bottom: 3, top: 5, right: 10, left: 10),
+                        child: CircleAvatar(
+                          radius: 32,
+                          backgroundColor: Colors.black,
+                          child: Text('ftr'),
+                        ),
+                      ),
+                      Text("All"),
+                      Text("Features")
+                    ],
                   ),
-                )
+                  // onTap: () => ,
+                ),
               ],
             ),
             // SABICARE Your All-in-one ENT App
