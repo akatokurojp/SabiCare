@@ -18,8 +18,9 @@ class _HomePageState extends State<HomePage> {
           child: SafeArea(
         child: ListView(
           children: [
-            Padding(padding: EdgeInsets.all(20)),
+            Padding(padding: EdgeInsets.all(20)), // top padding
             Row(
+              // row for avatar and text
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: EdgeInsets.only(left: 10),
                   child: Text(
-                    "Morning, Akato",
+                    "Morning, ",
                     style: TextStyle(
                         fontSize: 18,
                         fontFamily: 'quicksand'), //import quicksand font
@@ -48,7 +49,7 @@ class _HomePageState extends State<HomePage> {
             ), // space between leading avatar and options
             Row(
               children: [
-                // avatar row
+                // avatar row for options
                 Padding(padding: EdgeInsets.all(5)),
                 Padding(
                   padding:
