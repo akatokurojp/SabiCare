@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sabicare/Landing.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:sabicare/bottom.dart';
 import 'package:sabicare/home.dart';
 
 import 'Login.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: BottomPage(),
     );
   }
 }

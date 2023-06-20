@@ -48,17 +48,22 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     children: [
                       // email container
-                      Container(
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(20, 5, 0, 5),
-                          child: TextField(
-                            controller: authController.loginEmailController,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: "Email",
+                      Column(
+                        children: [
+                          Text("Username"),
+                          Container(
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(20, 5, 0, 5),
+                              child: TextField(
+                                controller: authController.loginEmailController,
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: "Input Your Email Here",
+                                ),
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
                       SizedBox(height: 10),
                       // password container
