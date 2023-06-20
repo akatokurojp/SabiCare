@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:lit_ui_kit/lit_ui_kit.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -156,10 +157,34 @@ class _HomePageState extends State<HomePage> {
                     child: Text("Your all-in-one ENT app",
                         style: TextStyle(color: Colors.white)),
                   )
-                ],
+                ], // SABICARE Your All-in-one ENT App
+              ),
+            ),
+            Container(
+              height: 200,
+              width: 200,
+              child: LitElevatedCard(
+                borderRadius: BorderRadius.circular(12),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Get Expert anytime, anywhere!",
+                          style: TextStyle(fontSize: 25)),
+                      Text(
+                        "Introducing our Chatbot with Expert System: Your personalized Patients Education Assistant",
+                        style: TextStyle(fontSize: 14, fontFamily: 'quicksand'),
+                      )
+                    ]),
+              ),
+            ),
+            Container(
+              height: 200,
+              width: 200,
+              child: LitElevatedCard(
+                child: Text("Test"),
+                borderRadius: BorderRadius.circular(12),
               ),
             )
-            // SABICARE Your All-in-one ENT App
           ],
         ),
       )),
