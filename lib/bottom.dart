@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sabicare/Login.dart';
 import 'package:sabicare/home.dart';
 
 class BottomPage extends StatefulWidget {
@@ -17,9 +18,7 @@ class _BottomPageState extends State<BottomPage> {
     });
   }
 
-  final List<Widget> _pages = [
-    HomePage(),
-  ];
+  final List<Widget> _pages = [HomePage(), LoginPage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
