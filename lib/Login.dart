@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:lit_ui_kit/lit_ui_kit.dart';
 import 'package:sabicare/register.dart';
 
 import 'Controllers/authcontroller.dart';
@@ -17,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     AuthController authController = AuthController();
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 93, 169, 192),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -25,94 +26,84 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Container(
+                  padding: EdgeInsets.only(top: 50),
+                ),
                 Text(
-                  "Sign in",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                  "Let's get you set up!",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40,
+                      color: Colors.white,
+                      fontFamily: 'quicksand'),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Text(
-                  "Here's your first step",
-                  style: TextStyle(fontSize: 20),
-                ),
-                Text(
-                  "with us!",
-                  style: TextStyle(fontSize: 20),
-                ),
-
                 SizedBox(
                   height: 40,
                 ),
 
-                //email
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(20, 5, 0, 5),
-                    child: TextField(
-                      controller: authController.loginEmailController,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Email",
-                      ),
-                    ),
-                  ),
-                ),
-
-                SizedBox(
-                  height: 10,
-                ),
-
-                //password
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(20, 5, 0, 5),
-                    child: TextField(
-                      obscureText: true,
-                      controller: authController.loginPasswordController,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Password",
-                      ),
-                    ),
-                  ),
-                ),
-
-                SizedBox(
-                  height: 15,
-                ),
-
-                //forgot password
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                LitElevatedCard(
+                  child: Column(
                     children: [
-                      GestureDetector(
-                        onTap: (() {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => RegisterPage()));
-                        }),
-                        child: Text(
-                          'Forgot Password?',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
+                      // email container
+                      Container(
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 5, 0, 5),
+                          child: TextField(
+                            controller: authController.loginEmailController,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Email",
+                            ),
                           ),
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      // password container
+                      Container(
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(20, 5, 0, 5),
+                          child: TextField(
+                            obscureText: true,
+                            controller: authController.loginPasswordController,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Password",
+                            ),
+                          ),
+                        ),
+                      ),
+                      //forgot password
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            GestureDetector(
+                              onTap: (() {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => RegisterPage()));
+                              }),
+                              child: Text(
+                                'Forgot Password?',
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
 
+                SizedBox(
+                  height: 15,
+                ),
                 SizedBox(
                   height: 30,
                 ),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sabicare/Landing.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:sabicare/home.dart';
+
+import 'Login.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: IntroScreen(),
+      home: LoginPage(),
     );
   }
 }
