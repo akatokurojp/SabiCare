@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sabicare/Login.dart';
 import 'package:sabicare/home.dart';
 
 class BottomPage extends StatefulWidget {
@@ -19,6 +20,7 @@ class _BottomPageState extends State<BottomPage> {
 
   final List<Widget> _pages = [
     HomePage(),
+    LoginPage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -26,34 +28,38 @@ class _BottomPageState extends State<BottomPage> {
       body: _pages[_selectedIndex],
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(0.1),
-          border: Border(
-            top: BorderSide(
-              color: Colors.white,
-              width: 3.0,
-            ),
+          border: Border.all(color: Colors.white, width: 2),
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(30),
+            topLeft: Radius.circular(30),
           ),
         ),
-        child: BottomNavigationBar(
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.white,
-          backgroundColor: Color.fromARGB(255, 93, 169, 192),
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          elevation: 0,
-          currentIndex: _selectedIndex,
-          onTap: _navigateBottomBar,
-          type: BottomNavigationBarType.fixed,
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.calculate_outlined), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.camera_alt_outlined), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline), label: 'Home'),
-          ],
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30.0),
+            topRight: Radius.circular(30.0),
+          ),
+          child: BottomNavigationBar(
+            selectedItemColor: Colors.black,
+            unselectedItemColor: Colors.white,
+            backgroundColor: Color.fromARGB(255, 93, 169, 192),
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            elevation: 0,
+            currentIndex: _selectedIndex,
+            onTap: _navigateBottomBar,
+            type: BottomNavigationBarType.fixed,
+            items: [
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.home_outlined), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.list_alt_outlined), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.message_outlined), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.person_outline), label: 'Home'),
+            ],
+          ),
         ),
       ),
     );

@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
       title: '',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // primarySwatch: Colors.blue
+        canvasColor: Color.fromARGB(255, 93, 169, 192),
       ),
       home: BottomPage(),
     );
