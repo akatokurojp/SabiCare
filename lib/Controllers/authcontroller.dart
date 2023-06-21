@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:path/path.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:sabicare/home.dart';
+import 'package:sabicare/chatlog.dart';
 
 import '../Login.dart';
 
@@ -20,6 +21,9 @@ class AuthController extends GetxController {
   // login text editing controllers
   final TextEditingController loginEmailController = TextEditingController();
   final TextEditingController loginPasswordController = TextEditingController();
+
+  //Text MSG Controller API
+  final TextEditingController textController = TextEditingController();
   // Biometric scan
   LocalAuthentication auth = LocalAuthentication();
 
@@ -71,4 +75,6 @@ class AuthController extends GetxController {
       return false;
     }
   }
+
+  Future<void> sendAPI() async {}
 }
