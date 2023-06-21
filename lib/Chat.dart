@@ -137,7 +137,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
               ),
             ),
             const SizedBox(
-              height: 12,
+              height: 100,
             ),
             Text(
               "Developed by Sabi.LTD",

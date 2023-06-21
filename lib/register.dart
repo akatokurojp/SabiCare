@@ -146,9 +146,9 @@ class _RegisterPageState extends State<RegisterPage> {
                       margin: EdgeInsets.only(left: 12, right: 12),
                       decoration: BoxDecoration(
                           color: signInColor,
-                          borderRadius: BorderRadius.circular(10)),
+                          borderRadius: BorderRadius.circular(22)),
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 15, bottom: 15),
+                        padding: const EdgeInsets.all(20),
                         child: Center(
                             child: Text(
                           "Sign up",

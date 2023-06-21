@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(top: 25),
+                    padding: EdgeInsets.only(top: 10),
                   ),
                   Text(
                     "Let's get you set up!",
@@ -247,16 +247,16 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                   SizedBox(
-                    height: 80,
+                    height: 50,
                   ),
 
                   // SizedBox(
                   //   height: 80,
                   // ),
 
-                  SizedBox(
-                    height: 30,
-                  ),
+                  // SizedBox(
+                  //   height: 30,
+                  // ),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
