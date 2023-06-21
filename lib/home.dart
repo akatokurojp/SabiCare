@@ -31,9 +31,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 CircleAvatar(
-                  backgroundColor: Colors.black,
-                  child:
-                      Icon(Icons.account_circle_rounded, color: Colors.white),
+                  backgroundColor: Colors.transparent,
+                  child: Icon(Icons.account_circle_rounded,
+                      color: Colors.white, size: 42),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 10),

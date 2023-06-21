@@ -38,7 +38,7 @@ class _ChatLogPageState extends State<ChatLogPage> {
                     child: Text("P"),
                   ),
                   title: Text('Doctor Aberdeen'),
-                  subtitle: Text('It seems you have a conditions of ligma '),
+                  subtitle: Text('It seems you have a conditions of ligma'),
                   trailing: Icon(Icons.more_vert),
                 ),
               ))
