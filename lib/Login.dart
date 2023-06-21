@@ -168,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: Container(
                               margin: EdgeInsets.only(right: 10.0),
                               child: Divider(
-                                color: textcolor,
+                                color: textColor,
                                 thickness: 2,
                               ))),
                       Text(
@@ -176,13 +176,13 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
-                            color: textcolor),
+                            color: textColor),
                       ),
                       Expanded(
                           child: Container(
                               margin: EdgeInsets.only(left: 10.0),
                               child: Divider(
-                                color: textcolor,
+                                color: textColor,
                                 thickness: 2,
                               ))),
                     ],
@@ -198,7 +198,7 @@ class _LoginPageState extends State<LoginPage> {
                         onTap: () {},
                         child: Container(
                             decoration: BoxDecoration(
-                                color: textcolor,
+                                color: textColor,
                                 borderRadius: BorderRadius.circular(12)),
                             child: Padding(
                               padding: const EdgeInsets.all(10),
@@ -217,7 +217,7 @@ class _LoginPageState extends State<LoginPage> {
                         onTap: () {},
                         child: Container(
                             decoration: BoxDecoration(
-                                color: textcolor,
+                                color: textColor,
                                 borderRadius: BorderRadius.circular(12)),
                             child: Padding(
                               padding: const EdgeInsets.all(10),
@@ -236,7 +236,7 @@ class _LoginPageState extends State<LoginPage> {
                         onTap: () {},
                         child: Container(
                             decoration: BoxDecoration(
-                                color: textcolor,
+                                color: textColor,
                                 borderRadius: BorderRadius.circular(12)),
                             child: Padding(
                               padding: const EdgeInsets.all(10),
@@ -268,7 +268,7 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("I don't have an account yet?",
-                          style: TextStyle(fontSize: 17, color: textcolor)),
+                          style: TextStyle(fontSize: 17, color: textColor)),
                       SizedBox(
                         width: 5,
                       ),

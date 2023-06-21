@@ -101,7 +101,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
         elevation: 0,
         title: const Text(
           "Sabiich",
-          style: TextStyle(fontWeight: FontWeight.w600, color: textcolor),
+          style: TextStyle(fontWeight: FontWeight.w600, color: textColor),
         ),
       ),
       body: Container(
@@ -180,7 +180,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
             child: Text(
               "$chattext",
               style: TextStyle(
-                  color: type == ChatMessageType.bot ? textcolor : chatBgColor,
+                  color: type == ChatMessageType.bot ? textColor : chatBgColor,
                   fontSize: 15,
                   fontWeight: type == ChatMessageType.bot
                       ? FontWeight.w600

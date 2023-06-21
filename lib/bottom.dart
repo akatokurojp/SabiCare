@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sabicare/Chat.dart';
 import 'package:sabicare/Login.dart';
 import 'package:sabicare/home.dart';
+import 'package:sabicare/register.dart';
 
 class BottomPage extends StatefulWidget {
   const BottomPage({super.key});
@@ -22,6 +23,7 @@ class _BottomPageState extends State<BottomPage> {
   final List<Widget> _pages = [
     HomePage(),
     LoginPage(),
+    RegisterPage(),
     SpeechScreen(),
   ];
   @override
