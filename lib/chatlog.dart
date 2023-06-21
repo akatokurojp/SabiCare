@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class chatlogpage extends StatefulWidget {
-  const chatlogpage({super.key});
+class ChatLogPage extends StatefulWidget {
+  const ChatLogPage({super.key});
 
   @override
-  State<chatlogpage> createState() => _chatlogpageState();
+  State<ChatLogPage> createState() => _ChatLogPageState();
 }
 
-class _chatlogpageState extends State<chatlogpage> {
+class _ChatLogPageState extends State<ChatLogPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
