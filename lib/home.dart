@@ -213,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                       Padding(
                         padding: const EdgeInsets.only(top: 5, bottom: 5),
                         child: Text(
-                          "SABICARE: Book ENT appointment easy, fast, and hassle-free",
+                          "SABICARE: Book ENT appointment easy, fast, and hassle-free ",
                           style:
                               TextStyle(fontSize: 14, fontFamily: 'quicksand'),
                         ),
