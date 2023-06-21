@@ -30,67 +30,67 @@ class _SpeechScreenState extends State<SpeechScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: AvatarGlow(
-        endRadius: 75,
-        animate: isListening,
-        duration: Duration(milliseconds: 2000),
-        glowColor: bgColor,
-        repeat: true,
-        repeatPauseDuration: Duration(milliseconds: 100),
-        showTwoGlows: true,
-        child: GestureDetector(
-          onTapDown: (details) async {
-            if (!isListening) {
-              var available = await speechToText.initialize();
-              if (available) {
-                setState(() {
-                  isListening = true;
-                  speechToText.listen(
-                    onResult: (result) {
-                      setState(() {
-                        text = result.recognizedWords;
-                      });
-                    },
-                  );
-                });
-              }
-            }
-          },
-          onTapUp: (details) async {
-            setState(() {
-              isListening = false;
-            });
-            await speechToText.stop();
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButton: AvatarGlow(
+      //   endRadius: 75,
+      //   animate: isListening,
+      //   duration: Duration(milliseconds: 2000),
+      //   glowColor: bgColor,
+      //   repeat: true,
+      //   repeatPauseDuration: Duration(milliseconds: 100),
+      //   showTwoGlows: true,
+      //   child: GestureDetector(
+      //     onTapDown: (details) async {
+      //       if (!isListening) {
+      //         var available = await speechToText.initialize();
+      //         if (available) {
+      //           setState(() {
+      //             isListening = true;
+      //             speechToText.listen(
+      //               onResult: (result) {
+      //                 setState(() {
+      //                   text = result.recognizedWords;
+      //                 });
+      //               },
+      //             );
+      //           });
+      //         }
+      //       }
+      //     },
+      //     onTapUp: (details) async {
+      //       setState(() {
+      //         isListening = false;
+      //       });
+      //       await speechToText.stop();
 
-            if (text.isNotEmpty &&
-                text != "Hold the button and start Speaking") {
-              messages.add(ChatMessage(text: text, type: ChatMessageType.user));
-              var msg = await ApiServices.sendMessage(text);
-              msg = msg.trim();
+      //       if (text.isNotEmpty &&
+      //           text != "Hold the button and start Speaking") {
+      //         messages.add(ChatMessage(text: text, type: ChatMessageType.user));
+      //         var msg = await ApiServices.sendMessage(text);
+      //         msg = msg.trim();
 
-              setState(() {
-                messages.add(ChatMessage(text: msg, type: ChatMessageType.bot));
-              });
+      //         setState(() {
+      //           messages.add(ChatMessage(text: msg, type: ChatMessageType.bot));
+      //         });
 
-              Future.delayed(Duration(milliseconds: 500), () {
-                TextToSpeech.speak(msg);
-              });
-            } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text("Failed to process. Try again!")));
-            }
-          },
-          child: CircleAvatar(
-            backgroundColor: bgColor,
-            radius: 35,
-            child: Icon(
-              isListening ? Icons.mic : Icons.mic_none,
-              color: Colors.white,
-            ),
-          ),
-        ),
-      ),
+      //         Future.delayed(Duration(milliseconds: 500), () {
+      //           TextToSpeech.speak(msg);
+      //         });
+      //       } else {
+      //         ScaffoldMessenger.of(context).showSnackBar(
+      //             SnackBar(content: Text("Failed to process. Try again!")));
+      //       }
+      //     },
+      //     child: CircleAvatar(
+      //       backgroundColor: bgColor,
+      //       radius: 35,
+      //       child: Icon(
+      //         isListening ? Icons.mic : Icons.mic_none,
+      //         color: Colors.white,
+      //       ),
+      //     ),
+      //   ),
+      // ),
       appBar: AppBar(
         leading: Icon(
           Icons.keyboard_return_rounded,
