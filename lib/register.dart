@@ -21,7 +21,7 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -129,7 +129,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 //textfield password
 
                 SizedBox(
-                  height: 220,
+                  height: 40,
                 ),
 
                 //button sign up
