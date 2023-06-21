@@ -93,14 +93,14 @@ class _SpeechScreenState extends State<SpeechScreen> {
       ),
       appBar: AppBar(
         leading: Icon(
-          Icons.sort_rounded,
+          Icons.keyboard_return_rounded,
           color: Colors.white,
         ),
         centerTitle: true,
         backgroundColor: bgColor,
         elevation: 0,
         title: const Text(
-          "Sabiich",
+          "Self Diagnose",
           style: TextStyle(fontWeight: FontWeight.w600, color: textcolor),
         ),
       ),
@@ -130,7 +130,6 @@ class _SpeechScreenState extends State<SpeechScreen> {
                   itemCount: messages.length,
                   itemBuilder: (BuildContext context, int index) {
                     var chat = messages[index];
-
                     return chatBubble(chattext: chat.text, type: chat.type);
                   },
                 ),
@@ -138,13 +137,6 @@ class _SpeechScreenState extends State<SpeechScreen> {
             ),
             const SizedBox(
               height: 12,
-            ),
-            Text(
-              "Developed by Sabi.LTD",
-              style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.black54,
-                  fontWeight: FontWeight.w400),
             ),
           ],
         ),
