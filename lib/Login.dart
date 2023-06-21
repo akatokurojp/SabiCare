@@ -29,7 +29,7 @@ class _LoginPageState extends State<LoginPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(top: 25),
+                    padding: EdgeInsets.only(top: 10),
                   ),
                   Text(
                     "Let's get you set up!",
@@ -50,32 +50,26 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                       children: [
                         // email container
-                        Column(
-                          children: [
-                            Text("Username"),
-                            Padding(
-                                padding: EdgeInsets.only(top: 15, bottom: 5)),
-                            Padding(
-                              padding: EdgeInsets.all(1),
-                              child: TextField(
-                                controller: authController.loginEmailController,
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Input Your Email Here",
-                                    labelText: "Username",
-                                    labelStyle: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black),
-                                    icon: Icon(Icons.account_circle_rounded,
-                                        color: bgColor),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: bgColor)),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: bgColor))),
-                              ),
-                            ),
-                          ],
+                        Text("Sign in"),
+                        Padding(padding: EdgeInsets.only(top: 15, bottom: 5)),
+                        Padding(
+                          padding: EdgeInsets.all(1),
+                          child: TextField(
+                            controller: authController.loginEmailController,
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: "Enter Your Email Here",
+                                labelText: "Email",
+                                labelStyle: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                                icon: Icon(Icons.account_circle_rounded,
+                                    color: bgColor),
+                                focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: bgColor)),
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: bgColor))),
+                          ),
                         ),
                         SizedBox(height: 10),
                         // password container
@@ -168,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: Container(
                               margin: EdgeInsets.only(right: 10.0),
                               child: Divider(
-                                color: textcolor,
+                                color: textColor,
                                 thickness: 2,
                               ))),
                       Text(
@@ -176,13 +170,13 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
-                            color: textcolor),
+                            color: textColor),
                       ),
                       Expanded(
                           child: Container(
                               margin: EdgeInsets.only(left: 10.0),
                               child: Divider(
-                                color: textcolor,
+                                color: textColor,
                                 thickness: 2,
                               ))),
                     ],
@@ -198,7 +192,7 @@ class _LoginPageState extends State<LoginPage> {
                         onTap: () {},
                         child: Container(
                             decoration: BoxDecoration(
-                                color: textcolor,
+                                color: textColor,
                                 borderRadius: BorderRadius.circular(12)),
                             child: Padding(
                               padding: const EdgeInsets.all(10),
@@ -217,7 +211,7 @@ class _LoginPageState extends State<LoginPage> {
                         onTap: () {},
                         child: Container(
                             decoration: BoxDecoration(
-                                color: textcolor,
+                                color: textColor,
                                 borderRadius: BorderRadius.circular(12)),
                             child: Padding(
                               padding: const EdgeInsets.all(10),
@@ -236,7 +230,7 @@ class _LoginPageState extends State<LoginPage> {
                         onTap: () {},
                         child: Container(
                             decoration: BoxDecoration(
-                                color: textcolor,
+                                color: textColor,
                                 borderRadius: BorderRadius.circular(12)),
                             child: Padding(
                               padding: const EdgeInsets.all(10),
@@ -253,22 +247,22 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                   SizedBox(
-                    height: 80,
+                    height: 50,
                   ),
 
                   // SizedBox(
                   //   height: 80,
                   // ),
 
-                  SizedBox(
-                    height: 30,
-                  ),
+                  // SizedBox(
+                  //   height: 30,
+                  // ),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("I don't have an account yet?",
-                          style: TextStyle(fontSize: 17, color: textcolor)),
+                          style: TextStyle(fontSize: 17, color: textColor)),
                       SizedBox(
                         width: 5,
                       ),

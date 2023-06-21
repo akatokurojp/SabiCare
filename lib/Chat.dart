@@ -100,8 +100,8 @@ class _SpeechScreenState extends State<SpeechScreen> {
         backgroundColor: bgColor,
         elevation: 0,
         title: const Text(
-          "Self Diagnose",
-          style: TextStyle(fontWeight: FontWeight.w600, color: textcolor),
+          "Sabiich",
+          style: TextStyle(fontWeight: FontWeight.w600, color: textColor),
         ),
       ),
       body: Container(
@@ -136,7 +136,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
               ),
             ),
             const SizedBox(
-              height: 12,
+              height: 100,
             ),
           ],
         ),
@@ -172,7 +172,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
             child: Text(
               "$chattext",
               style: TextStyle(
-                  color: type == ChatMessageType.bot ? textcolor : chatBgColor,
+                  color: type == ChatMessageType.bot ? textColor : chatBgColor,
                   fontSize: 15,
                   fontWeight: type == ChatMessageType.bot
                       ? FontWeight.w600
