@@ -1,8 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:lit_ui_kit/lit_ui_kit.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'Controllers/authcontroller.dart';
 
 class ForgorPage extends StatefulWidget {
   const ForgorPage({Key? key}) : super(key: key);
@@ -28,7 +25,7 @@ class _ForgorPage extends State<ForgorPage> {
       showDialog(
           context: context,
           builder: (context) {
-            return AlertDialog(
+            return const AlertDialog(
               content:
                   Text('Password Reset Link has been Sent! Check your E-Mail'),
             );
@@ -55,26 +52,26 @@ class _ForgorPage extends State<ForgorPage> {
                     child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               Icons.phone_android,
               size: 100,
             ),
             //Hello again!
-            Text(
+            const Text(
               'Hello again !',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Welcome Back !',
               style: TextStyle(
                 fontSize: 18,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             //email textfield
@@ -90,7 +87,7 @@ class _ForgorPage extends State<ForgorPage> {
                   padding: const EdgeInsets.only(left: 20.0),
                   child: TextField(
                     controller: forgoremailController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Email',
                     ),
@@ -100,12 +97,12 @@ class _ForgorPage extends State<ForgorPage> {
             ),
             MaterialButton(
               onPressed: passwordReset,
-              child: Text('Reset Password'),
+              child: const Text('Reset Password'),
               color: Colors.deepPurple[200],
             ),
 
             //password textfield
-            SizedBox(
+            const SizedBox(
               height: 10,
             )
           ],

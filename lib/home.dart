@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:lit_ui_kit/lit_ui_kit.dart';
 import 'package:sabicare/static/colors.dart';
@@ -24,28 +22,28 @@ class _HomePageState extends State<HomePage> {
           child: SafeArea(
         child: ListView(
           children: [
-            Padding(padding: EdgeInsets.all(15)), // top padding
+            const Padding(padding: EdgeInsets.all(15)), // top padding
             Row(
               // row for avatar and text
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                     left: 20,
                   ),
                 ),
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundColor: Colors.transparent,
                   child: Icon(Icons.account_circle_rounded,
                       color: Colors.white, size: 42),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 10),
+                  padding: const EdgeInsets.only(left: 10),
                   child: GetBuilder<AuthController>(
                     builder: (controller) {
                       return Text(
                         "Morning, ${controller.userName.value ?? ''}",
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 18,
                           fontFamily: 'quicksand',
                           color: Colors.white,
@@ -57,16 +55,16 @@ class _HomePageState extends State<HomePage> {
               ],
             ), // space between leading avatar and options
             Container(
-              padding: EdgeInsets.only(bottom: 10),
+              padding: const EdgeInsets.only(bottom: 10),
             ), // space between leading avatar and options
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 // avatar row for options
-                Padding(padding: EdgeInsets.all(5)),
+                const Padding(padding: EdgeInsets.all(5)),
                 GestureDetector(
-                  child: Column(
-                    children: const [
+                  child: const Column(
+                    children: [
                       Padding(
                         padding: EdgeInsets.only(
                             bottom: 3, top: 5, right: 10, left: 10),
@@ -86,8 +84,8 @@ class _HomePageState extends State<HomePage> {
                   // onTap: () => ,
                 ),
                 GestureDetector(
-                  child: Column(
-                    children: const [
+                  child: const Column(
+                    children: [
                       Padding(
                         padding: EdgeInsets.only(
                             bottom: 3, top: 5, right: 10, left: 10),
@@ -104,8 +102,8 @@ class _HomePageState extends State<HomePage> {
                   // onTap: () => ,
                 ),
                 GestureDetector(
-                  child: Column(
-                    children: const [
+                  child: const Column(
+                    children: [
                       Padding(
                         padding: EdgeInsets.only(
                             bottom: 3, top: 5, right: 10, left: 10),
@@ -122,8 +120,8 @@ class _HomePageState extends State<HomePage> {
                   // onTap: () => ,
                 ),
                 GestureDetector(
-                  child: Column(
-                    children: const [
+                  child: const Column(
+                    children: [
                       Padding(
                         padding: EdgeInsets.only(
                             bottom: 3, top: 5, right: 10, left: 10),
@@ -141,9 +139,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            Padding(padding: EdgeInsets.all(10)),
-            Padding(
-              padding: const EdgeInsets.only(left: 25),
+            const Padding(padding: EdgeInsets.all(10)),
+            const Padding(
+              padding: EdgeInsets.only(left: 25),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -155,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                         child: Text(' '),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(8.0),
                         child: Text(
                           "SABICARE",
                           style: TextStyle(fontSize: 20, color: Colors.white),
@@ -188,17 +186,16 @@ class _HomePageState extends State<HomePage> {
                               TextStyle(fontSize: 14, fontFamily: 'quicksand'),
                         ),
                       ),
-                      Padding(padding: EdgeInsets.only(top: 14)),
+                      const Padding(padding: EdgeInsets.only(top: 14)),
                       Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                         Padding(
-                            padding: EdgeInsets.only(top: 1, right: 1),
+                            padding: const EdgeInsets.only(top: 1, right: 1),
                             child: ElevatedButton(
-                              style: ButtonStyle(
+                              style: const ButtonStyle(
                                   backgroundColor: MaterialStatePropertyAll(
                                       Colors.blueGrey)),
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(right: 32, left: 32),
+                              child: const Padding(
+                                padding: EdgeInsets.only(right: 32, left: 32),
                                 child: Text(
                                   "Start now!",
                                   style: TextStyle(fontSize: 15),
@@ -219,25 +216,24 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       const Text("Easy Appointment booking with SABICARE",
                           style: TextStyle(fontSize: 25)),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 5, bottom: 5),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 5, bottom: 5),
                         child: Text(
                           "SABICARE: Book ENT appointment easy, fast, and hassle-free ",
                           style:
                               TextStyle(fontSize: 14, fontFamily: 'quicksand'),
                         ),
                       ),
-                      Padding(padding: EdgeInsets.only(top: 14)),
+                      const Padding(padding: EdgeInsets.only(top: 14)),
                       Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                         Padding(
-                            padding: EdgeInsets.only(top: 1, right: 1),
+                            padding: const EdgeInsets.only(top: 1, right: 1),
                             child: ElevatedButton(
-                              style: ButtonStyle(
+                              style: const ButtonStyle(
                                   backgroundColor: MaterialStatePropertyAll(
                                       Colors.blueGrey)),
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(right: 32, left: 32),
+                              child: const Padding(
+                                padding: EdgeInsets.only(right: 32, left: 32),
                                 child: Text(
                                   "Book now!",
                                   style: TextStyle(fontSize: 15),

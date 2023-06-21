@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:sabicare/expertdemo.dart';
 
 import 'home.dart';
 
@@ -11,18 +9,18 @@ class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 93, 169, 192),
+      backgroundColor: const Color.fromARGB(255, 93, 169, 192),
       body: SafeArea(
         child: ListView(
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 8.0, top: 20),
+            const Padding(
+              padding: EdgeInsets.only(left: 8.0, top: 20),
               child: Text(
                 'SABICARE',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: const Color.fromARGB(255, 244, 250, 251),
+                  color: Color.fromARGB(255, 244, 250, 251),
                   fontSize: 28,
                   fontFamily:
                       'Questrial', // Use GoogleFonts.questrial as a font family
@@ -51,13 +49,13 @@ class IntroScreen extends StatelessWidget {
             // we deliver groceries at your doorstep
             Container(
               width: double.infinity,
-              child: Padding(
-                padding: const EdgeInsets.all(5.0),
+              child: const Padding(
+                padding: EdgeInsets.all(5.0),
                 child: Text(
                   'Make your life healthier!',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: const Color.fromARGB(255, 244, 250, 251),
+                    color: Color.fromARGB(255, 244, 250, 251),
                     fontSize: 28,
                     fontFamily: 'Questrial',
                   ),
@@ -72,14 +70,14 @@ class IntroScreen extends StatelessWidget {
                 Navigator.of(context).pushReplacement(
                   PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) =>
-                        HomePage(),
+                        const HomePage(),
                     transitionsBuilder:
                         (context, animation, secondaryAnimation, child) {
                       // Define your custom transition animation
                       return FadeTransition(
                         opacity: animation,
                         child:
-                            HomePage(), // Replace with the destination page widget
+                            const HomePage(), // Replace with the destination page widget
                       );
                     },
                   ),
@@ -88,7 +86,7 @@ class IntroScreen extends StatelessWidget {
               child: Center(
                 child: Container(
                     padding: const EdgeInsets.all(20),
-                    margin: EdgeInsets.only(right: 5, left: 5),
+                    margin: const EdgeInsets.only(right: 5, left: 5),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
                       color: const Color.fromARGB(255, 244, 250, 251),

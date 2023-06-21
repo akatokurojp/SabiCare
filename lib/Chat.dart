@@ -1,9 +1,5 @@
-import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:lit_ui_kit/lit_ui_kit.dart';
-import 'package:sabicare/Controllers/authcontroller.dart';
 import 'package:sabicare/controllers/gptapiservices.dart';
 import 'package:sabicare/static/chatmodel.dart';
 import 'package:sabicare/static/colors.dart';
@@ -26,14 +22,14 @@ class _SpeechScreenState extends State<SpeechScreen> {
   var scrollController = ScrollController();
   scrollMethod() {
     scrollController.animateTo(scrollController.position.maxScrollExtent,
-        duration: Duration(milliseconds: 300), curve: Curves.easeOut);
+        duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
+        leading: const Icon(
           Icons.keyboard_return_rounded,
           color: Colors.white,
           size: 32,
@@ -57,10 +53,10 @@ class _SpeechScreenState extends State<SpeechScreen> {
                   color: isListening ? Colors.black87 : Colors.black54,
                   fontWeight: FontWeight.w600),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: Container(
-                padding: EdgeInsets.only(top: 8),
+                padding: const EdgeInsets.only(top: 8),
                 decoration: BoxDecoration(
                     color: chatBgColor,
                     borderRadius: BorderRadius.circular(12)),
@@ -78,31 +74,16 @@ class _SpeechScreenState extends State<SpeechScreen> {
             ),
             LitElevatedCard(
                 child: Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 top: 3,
                 bottom: 1,
               ),
               child: TextField(
-                onChanged: (text) async {
-                  messages
-                      .add(ChatMessage(text: text, type: ChatMessageType.user));
-                  var msg = await ApiServices.sendMessage(text);
-                  msg = msg.trim();
-
-                  setState(() {
-                    messages
-                        .add(ChatMessage(text: msg, type: ChatMessageType.bot));
-                  });
-
-                  Future.delayed(Duration(milliseconds: 500), () {
-                    TextToSpeech.speak(msg);
-                  });
-                },
                 onSubmitted: (text) async {
                   messages
                       .add(ChatMessage(text: text, type: ChatMessageType.user));
                   var msg = await ApiServices.sendMessage(text);
-                  msg = msg.trim();
+                  // msg = msg.trim();
                   print(text);
 
                   setState(() {
@@ -111,7 +92,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
                   });
 
                   Future.delayed(
-                    Duration(milliseconds: 500),
+                    const Duration(milliseconds: 500),
                     () {
                       TextToSpeech.speak(msg);
                     },
@@ -133,18 +114,18 @@ class _SpeechScreenState extends State<SpeechScreen> {
           backgroundColor: bgColor,
           child: type == ChatMessageType.bot
               ? Image.asset('assets/icon.png')
-              : Icon(Icons.person, color: Colors.white),
+              : const Icon(Icons.person, color: Colors.white),
         ),
         const SizedBox(
           width: 12,
         ),
         Expanded(
           child: Container(
-            padding: EdgeInsets.all(12),
-            margin: EdgeInsets.only(bottom: 12),
+            padding: const EdgeInsets.all(12),
+            margin: const EdgeInsets.only(bottom: 12),
             decoration: BoxDecoration(
               color: type == ChatMessageType.bot ? bgColor : Colors.white,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(12),
                 bottomRight: Radius.circular(12),
                 bottomLeft: Radius.circular(12),

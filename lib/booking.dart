@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:lit_ui_kit/lit_ui_kit.dart';
 import 'package:sabicare/static/colors.dart';
 import 'package:intl/intl.dart';
 
@@ -17,7 +14,7 @@ class _BookingPageState extends State<BookingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
+        leading: const Icon(
           Icons.keyboard_return,
           color: Colors.white,
           size: 32,
@@ -33,14 +30,14 @@ class _BookingPageState extends State<BookingPage> {
       body: SafeArea(
         child: ListView(
           children: <Widget>[
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(left: 20, top: 10),
               child: Text(
                 "Select date",
                 style: TextStyle(fontSize: 15, color: textColor),
               ),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(left: 20, top: 5),
               child: Text(
                 "April, 2022",
@@ -73,7 +70,7 @@ class _BookingPageState extends State<BookingPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: EdgeInsets.all(8),
+                            padding: const EdgeInsets.all(8),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -91,7 +88,7 @@ class _BookingPageState extends State<BookingPage> {
               ),
             ),
             const SizedBox(height: 20),
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(10),
               child: Text("Test"),
             )
