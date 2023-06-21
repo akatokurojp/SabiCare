@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:lit_ui_kit/lit_ui_kit.dart';
+import 'package:sabicare/Controllers/authcontroller.dart';
 import 'package:sabicare/controllers/gptapiservices.dart';
 import 'package:sabicare/static/chatmodel.dart';
 import 'package:sabicare/static/colors.dart';
@@ -82,65 +83,40 @@ class _SpeechScreenState extends State<SpeechScreen> {
                 bottom: 1,
               ),
               child: TextField(
-                decoration: InputDecoration(
-                    suffixIcon: Align(
-                  widthFactor: 1.1,
-                  heightFactor: 1.1,
-                  child: GestureDetector(
-                    onTapDown: (details) async {
-                      if (!isListening) {
-                        var available = await speechToText.initialize();
-                        if (available) {
-                          setState(() {
-                            isListening = true;
-                            speechToText.listen(
-                              onResult: (result) {
-                                setState(() {
-                                  text = result.recognizedWords;
-                                });
-                              },
-                            );
-                          });
-                        }
-                      }
+                onChanged: (text) async {
+                  messages
+                      .add(ChatMessage(text: text, type: ChatMessageType.user));
+                  var msg = await ApiServices.sendMessage(text);
+                  msg = msg.trim();
+
+                  setState(() {
+                    messages
+                        .add(ChatMessage(text: msg, type: ChatMessageType.bot));
+                  });
+
+                  Future.delayed(Duration(milliseconds: 500), () {
+                    TextToSpeech.speak(msg);
+                  });
+                },
+                onSubmitted: (text) async {
+                  messages
+                      .add(ChatMessage(text: text, type: ChatMessageType.user));
+                  var msg = await ApiServices.sendMessage(text);
+                  msg = msg.trim();
+                  print(text);
+
+                  setState(() {
+                    messages
+                        .add(ChatMessage(text: msg, type: ChatMessageType.bot));
+                  });
+
+                  Future.delayed(
+                    Duration(milliseconds: 500),
+                    () {
+                      TextToSpeech.speak(msg);
                     },
-                    onTapUp: (details) async {
-                      setState(() {
-                        isListening = false;
-                      });
-                      await speechToText.stop();
-
-                      if (text.isNotEmpty &&
-                          text != "Hold the button and start Speaking") {
-                        messages.add(ChatMessage(
-                            text: text, type: ChatMessageType.user));
-                        var msg = await ApiServices.sendMessage(text);
-                        msg = msg.trim();
-
-                        setState(() {
-                          messages.add(ChatMessage(
-                              text: msg, type: ChatMessageType.bot));
-                        });
-
-                        Future.delayed(Duration(milliseconds: 500), () {
-                          TextToSpeech.speak(msg);
-                        });
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text("Failed to process. Try again!")));
-                      }
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: bgColor,
-                      radius: 22,
-                      child: Icon(
-                        isListening ? Icons.mic : Icons.mic_none,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                )),
-                // controller: ,
+                  );
+                },
               ),
             ))
           ],
