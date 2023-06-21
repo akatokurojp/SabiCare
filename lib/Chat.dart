@@ -18,6 +18,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
   var text = "Hold the button and start speaking ";
   var isListening = false;
   final List<ChatMessage> messages = [];
+  TextEditingController inputChat = TextEditingController();
 
   var scrollController = ScrollController();
   scrollMethod() {
@@ -79,6 +80,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
                 bottom: 1,
               ),
               child: TextField(
+                controller: inputChat,
                 onSubmitted: (text) async {
                   messages
                       .add(ChatMessage(text: text, type: ChatMessageType.user));
@@ -89,6 +91,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
                   setState(() {
                     messages
                         .add(ChatMessage(text: msg, type: ChatMessageType.bot));
+                    inputChat.clear();
                   });
 
                   Future.delayed(
