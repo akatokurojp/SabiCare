@@ -85,19 +85,20 @@ class _SpeechScreenState extends State<SpeechScreen> {
                   messages
                       .add(ChatMessage(text: text, type: ChatMessageType.user));
                   var msg = await ApiServices.sendMessage(text);
+                  String tmsg = msg.toString().trim();
                   // msg = msg.trim();
                   print(text);
 
                   setState(() {
-                    messages
-                        .add(ChatMessage(text: msg, type: ChatMessageType.bot));
+                    messages.add(
+                        ChatMessage(text: tmsg, type: ChatMessageType.bot));
                     inputChat.clear();
                   });
 
                   Future.delayed(
                     const Duration(milliseconds: 500),
                     () {
-                      TextToSpeech.speak(msg);
+                      TextToSpeech.speak(tmsg);
                     },
                   );
                 },
