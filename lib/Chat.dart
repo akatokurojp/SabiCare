@@ -33,14 +33,14 @@ class _SpeechScreenState extends State<SpeechScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Icon(
-          Icons.sort_rounded,
+          Icons.keyboard_return_rounded,
           color: Colors.white,
         ),
         centerTitle: true,
         backgroundColor: bgColor,
         elevation: 0,
         title: const Text(
-          "Sabiich",
+          "Diagnose Yourself ! ",
           style: TextStyle(fontWeight: FontWeight.w600, color: textColor),
         ),
       ),
