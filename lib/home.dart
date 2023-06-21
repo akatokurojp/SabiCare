@@ -31,9 +31,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 CircleAvatar(
-                  backgroundColor: Colors.black,
-                  child:
-                      Icon(Icons.account_circle_rounded, color: Colors.white),
+                  backgroundColor: Colors.transparent,
+                  child: Icon(Icons.account_circle_rounded,
+                      color: Colors.white, size: 42),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 10),
@@ -213,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                       Padding(
                         padding: const EdgeInsets.only(top: 5, bottom: 5),
                         child: Text(
-                          "SABICARE: Book ENT appointment easy, fast, and hassle-free",
+                          "SABICARE: Book ENT appointment easy, fast, and hassle-free ",
                           style:
                               TextStyle(fontSize: 14, fontFamily: 'quicksand'),
                         ),
