@@ -50,6 +50,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 LitElevatedCard(
                   child: Column(
                     children: [
+                      Text("Sign up"),
+                      Padding(padding: EdgeInsets.only(top: 15, bottom: 5)),
                       Padding(
                         padding: EdgeInsets.only(left: 5, right: 5),
                         child: TextField(
@@ -120,6 +122,9 @@ class _RegisterPageState extends State<RegisterPage> {
                                   borderSide: BorderSide(color: bgColor))),
                         ),
                       ),
+                      SizedBox(
+                        height: 20,
+                      )
                     ],
                   ),
                 ),
@@ -138,11 +143,12 @@ class _RegisterPageState extends State<RegisterPage> {
                     authController.createAccount();
                   },
                   child: Container(
+                      margin: EdgeInsets.only(left: 12, right: 12),
                       decoration: BoxDecoration(
                           color: signInColor,
                           borderRadius: BorderRadius.circular(10)),
                       child: Padding(
-                        padding: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.only(top: 15, bottom: 15),
                         child: Center(
                             child: Text(
                           "Sign up",
@@ -155,7 +161,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
 
                 SizedBox(
-                  height: 30,
+                  height: 25,
                 ),
 
                 //already have and account?
@@ -176,8 +182,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       },
                       child: Text(
                         "Sign in",
-                        style:
-                            TextStyle(fontSize: 17, color: Color(0xff695CFE)),
+                        style: TextStyle(fontSize: 17, color: linkColor),
                       ),
                     ),
                   ],
