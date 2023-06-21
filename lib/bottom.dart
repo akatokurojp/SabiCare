@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sabicare/Chat.dart';
 import 'package:sabicare/Login.dart';
 import 'package:sabicare/home.dart';
 
@@ -21,6 +22,7 @@ class _BottomPageState extends State<BottomPage> {
   final List<Widget> _pages = [
     HomePage(),
     LoginPage(),
+    SpeechScreen(),
   ];
   @override
   Widget build(BuildContext context) {
