@@ -163,7 +163,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              height: 200,
               width: 200,
               child: LitElevatedCard(
                 borderRadius: BorderRadius.circular(12),
@@ -172,9 +171,13 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       const Text("Get Expert anytime, anywhere!",
                           style: TextStyle(fontSize: 25)),
-                      const Text(
-                        "Introducing our Chatbot with Expert System: Your personalized Patients Education Assistant",
-                        style: TextStyle(fontSize: 14, fontFamily: 'quicksand'),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 5, bottom: 5),
+                        child: Text(
+                          "Introducing our Chatbot with Expert System: Your personalized Patients Education Assistant",
+                          style:
+                              TextStyle(fontSize: 14, fontFamily: 'quicksand'),
+                        ),
                       ),
                       Padding(padding: EdgeInsets.only(top: 14)),
                       Row(mainAxisAlignment: MainAxisAlignment.end, children: [
@@ -199,7 +202,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              height: 200,
               width: 200,
               child: LitElevatedCard(
                 borderRadius: BorderRadius.circular(12),
@@ -208,9 +210,13 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       const Text("Easy Appointment booking with SABICARE",
                           style: TextStyle(fontSize: 25)),
-                      const Text(
-                        "SABICARE: Book ENT appointment easy, fast, and hassle-free",
-                        style: TextStyle(fontSize: 14, fontFamily: 'quicksand'),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5, bottom: 5),
+                        child: Text(
+                          "SABICARE: Book ENT appointment easy, fast, and hassle-free",
+                          style:
+                              TextStyle(fontSize: 14, fontFamily: 'quicksand'),
+                        ),
                       ),
                       Padding(padding: EdgeInsets.only(top: 14)),
                       Row(mainAxisAlignment: MainAxisAlignment.end, children: [
