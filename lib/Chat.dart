@@ -2,6 +2,7 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:lit_ui_kit/lit_ui_kit.dart';
 import 'package:sabicare/controllers/gptapiservices.dart';
 import 'package:sabicare/static/chatmodel.dart';
 import 'package:sabicare/static/colors.dart';
@@ -105,7 +106,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
         ),
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        padding: const EdgeInsets.only(top: 16),
         child: Column(
           children: [
             Text(
@@ -115,14 +116,13 @@ class _SpeechScreenState extends State<SpeechScreen> {
                   color: isListening ? Colors.black87 : Colors.black54,
                   fontWeight: FontWeight.w600),
             ),
-            SizedBox(height: 12),
+            SizedBox(height: 20),
             Expanded(
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                padding: EdgeInsets.only(top: 8),
                 decoration: BoxDecoration(
-                  color: chatBgColor,
-                  borderRadius: BorderRadius.circular(12),
-                ),
+                    color: chatBgColor,
+                    borderRadius: BorderRadius.circular(12)),
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   controller: scrollController,
@@ -135,9 +135,74 @@ class _SpeechScreenState extends State<SpeechScreen> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 100,
-            ),
+            LitElevatedCard(
+                child: Padding(
+              padding: EdgeInsets.only(
+                top: 3,
+                bottom: 1,
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                    suffixIcon: Align(
+                  widthFactor: 1.1,
+                  heightFactor: 1.1,
+                  child: GestureDetector(
+                    onTapDown: (details) async {
+                      if (!isListening) {
+                        var available = await speechToText.initialize();
+                        if (available) {
+                          setState(() {
+                            isListening = true;
+                            speechToText.listen(
+                              onResult: (result) {
+                                setState(() {
+                                  text = result.recognizedWords;
+                                });
+                              },
+                            );
+                          });
+                        }
+                      }
+                    },
+                    onTapUp: (details) async {
+                      setState(() {
+                        isListening = false;
+                      });
+                      await speechToText.stop();
+
+                      if (text.isNotEmpty &&
+                          text != "Hold the button and start Speaking") {
+                        messages.add(ChatMessage(
+                            text: text, type: ChatMessageType.user));
+                        var msg = await ApiServices.sendMessage(text);
+                        msg = msg.trim();
+
+                        setState(() {
+                          messages.add(ChatMessage(
+                              text: msg, type: ChatMessageType.bot));
+                        });
+
+                        Future.delayed(Duration(milliseconds: 500), () {
+                          TextToSpeech.speak(msg);
+                        });
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text("Failed to process. Try again!")));
+                      }
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: bgColor,
+                      radius: 22,
+                      child: Icon(
+                        isListening ? Icons.mic : Icons.mic_none,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                )),
+                // controller: ,
+              ),
+            ))
           ],
         ),
       ),
