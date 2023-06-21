@@ -50,32 +50,26 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                       children: [
                         // email container
-                        Column(
-                          children: [
-                            Text("Username"),
-                            Padding(
-                                padding: EdgeInsets.only(top: 15, bottom: 5)),
-                            Padding(
-                              padding: EdgeInsets.all(1),
-                              child: TextField(
-                                controller: authController.loginEmailController,
-                                decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    hintText: "Input Your Email Here",
-                                    labelText: "Username",
-                                    labelStyle: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black),
-                                    icon: Icon(Icons.account_circle_rounded,
-                                        color: bgColor),
-                                    focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(color: bgColor)),
-                                    enabledBorder: UnderlineInputBorder(
-                                        borderSide:
-                                            BorderSide(color: bgColor))),
-                              ),
-                            ),
-                          ],
+                        Text("Sign in"),
+                        Padding(padding: EdgeInsets.only(top: 15, bottom: 5)),
+                        Padding(
+                          padding: EdgeInsets.all(1),
+                          child: TextField(
+                            controller: authController.loginEmailController,
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: "Enter Your Email Here",
+                                labelText: "Email",
+                                labelStyle: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                                icon: Icon(Icons.account_circle_rounded,
+                                    color: bgColor),
+                                focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: bgColor)),
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(color: bgColor))),
+                          ),
                         ),
                         SizedBox(height: 10),
                         // password container
