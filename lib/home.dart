@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get.dart';
 import 'package:lit_ui_kit/lit_ui_kit.dart';
 import 'package:sabicare/static/colors.dart';
+
+import 'Controllers/authcontroller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,6 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final AuthController authController = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,14 +41,19 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 10),
-                  child: Text(
-                    "Morning, ",
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'quicksand',
-                        color: Colors.white), //import quicksand font
+                  child: GetBuilder<AuthController>(
+                    builder: (controller) {
+                      return Text(
+                        "Morning, ${controller.userName.value ?? ''}",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'quicksand',
+                          color: Colors.white,
+                        ),
+                      );
+                    },
                   ),
-                )
+                ),
               ],
             ), // space between leading avatar and options
             Container(

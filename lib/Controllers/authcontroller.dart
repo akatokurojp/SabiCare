@@ -1,3 +1,4 @@
+import 'package:auth/auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +10,11 @@ import 'package:sabicare/home.dart';
 import 'package:sabicare/chatlog.dart';
 
 import '../Login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthController extends GetxController {
   // sign up text editing controllers
-
+  RxString userName = RxString('');
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmpasswordController =
@@ -76,5 +78,21 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<void> sendAPI() async {}
+  Future<void> getUserName() async {
+    var user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      var userId = user.uid;
+      var userDoc = FirebaseFirestore.instance.collection('Users').doc(userId);
+
+      try {
+        var snapshot = await userDoc.get();
+        var name = snapshot.data()!['UserName'].toString();
+
+        // Update the userName value
+        userName.value = name;
+      } catch (e) {
+        print('Error fetching user name: $e');
+      }
+    }
+  }
 }
