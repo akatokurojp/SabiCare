@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:lit_ui_kit/lit_ui_kit.dart';
 import 'package:sabicare/register.dart';
 import 'package:sabicare/static/colors.dart';
-
+// import 'package:flutter_icons/flutter_icons.dart';
 import 'Controllers/authcontroller.dart';
 
 class LoginPage extends StatefulWidget {
@@ -114,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                                   child: Text(
                                     'Forgot Password?',
                                     style: TextStyle(
-                                      color: Colors.blue,
+                                      color: bgColor,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -197,13 +197,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: Padding(
                               padding: const EdgeInsets.all(10),
                               child: Center(
-                                  child: Text(
-                                "Google",
-                                style: TextStyle(
-                                  color: bgColor,
-                                  fontSize: 18,
-                                ),
-                              )),
+                                  child: Icon(Icons.g_mobiledata, size: 35)),
                             )),
                       ),
                       GestureDetector(
@@ -216,12 +210,10 @@ class _LoginPageState extends State<LoginPage> {
                             child: Padding(
                               padding: const EdgeInsets.all(10),
                               child: Center(
-                                  child: Text(
-                                "Facebook",
-                                style: TextStyle(
-                                  color: bgColor,
-                                  fontSize: 18,
-                                ),
+                                  child: Icon(
+                                Icons.facebook,
+                                color: Colors.blue,
+                                size: 35,
                               )),
                             )),
                       ),
@@ -235,12 +227,9 @@ class _LoginPageState extends State<LoginPage> {
                             child: Padding(
                               padding: const EdgeInsets.all(10),
                               child: Center(
-                                  child: Text(
-                                "Twitter",
-                                style: TextStyle(
-                                  color: bgColor,
-                                  fontSize: 18,
-                                ),
+                                  child: Icon(
+                                Icons.autofps_select_rounded,
+                                size: 35,
                               )),
                             )),
                       ),

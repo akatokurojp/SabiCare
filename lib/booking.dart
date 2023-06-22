@@ -53,12 +53,12 @@ class _BookingPageState extends State<BookingPage> {
                   // Format the date using DateFormat
                   String formattedDate =
                       DateFormat('dd-MMMM').format(oneMonthLater);
-// 'dd' for two-digit date format
+                  // month name: MMMM
+                  // day date: dd
 
                   // Format the day using DateFormat
                   String formattedDay = DateFormat('EEE').format(
                       oneMonthLater); // 'EEE' for short day name (e.g., Mon)
-
                   return Card(
                     color: textColor,
                     child: SizedBox(
