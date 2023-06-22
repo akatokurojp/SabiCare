@@ -3,6 +3,7 @@ import 'package:sabicare/Chat.dart';
 import 'package:sabicare/booking.dart';
 import 'package:sabicare/chatlog.dart';
 import 'package:sabicare/home.dart';
+import 'package:sabicare/transactHistory.dart';
 
 class BottomPage extends StatefulWidget {
   const BottomPage({super.key});
@@ -22,7 +23,7 @@ class _BottomPageState extends State<BottomPage> {
 
   final List<Widget> _pages = [
     const HomePage(),
-    const ChatLogPage(),
+    const TransactionHistoryPage(),
     const BookingPage(),
     const SpeechScreen(),
   ];

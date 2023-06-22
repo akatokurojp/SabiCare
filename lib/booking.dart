@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lit_ui_kit/containers.dart';
 import 'package:sabicare/static/colors.dart';
 import 'package:intl/intl.dart';
 
@@ -40,7 +41,7 @@ class _BookingPageState extends State<BookingPage> {
                 style: TextStyle(fontSize: 18, color: textColor),
               ),
             ),
-            Container(
+            SizedBox(
               height: 100,
               child: ListView(
                 scrollDirection: Axis.horizontal,
@@ -51,7 +52,7 @@ class _BookingPageState extends State<BookingPage> {
 
                   // Format the date using DateFormat
                   String formattedDate =
-                      DateFormat('dd-MM').format(oneMonthLater);
+                      DateFormat('dd-MMMM').format(oneMonthLater);
 // 'dd' for two-digit date format
 
                   // Format the day using DateFormat
@@ -60,7 +61,7 @@ class _BookingPageState extends State<BookingPage> {
 
                   return Card(
                     color: textColor,
-                    child: Container(
+                    child: SizedBox(
                       width: 100.0,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -84,10 +85,94 @@ class _BookingPageState extends State<BookingPage> {
               ),
             ),
             const SizedBox(height: 20),
-            const Padding(
-              padding: EdgeInsets.all(10),
-              child: Text("Test"),
-            )
+            // const Padding(
+            //   padding: EdgeInsets.all(10),
+            //   child: Text("Test"),
+            // ),
+            SizedBox(
+              width: 200,
+              child: LitElevatedCard(
+                borderRadius: BorderRadius.circular(12),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Card(
+                        elevation: 0,
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            child: Text("P"),
+                          ),
+                          title: Text('Doctor Aberdeen'),
+                          // subtitle:
+                          //     Text('It seems you have a conditions of ligma'),
+                          // trailing: Icon(Icons.more_vert),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(top: 5, bottom: 5),
+                            child: Text(
+                              "Schedule: ",
+                              style: TextStyle(
+                                  fontSize: 18, fontFamily: 'quicksand'),
+                            ),
+                          ),
+                          // insert schedule data
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(top: 5, bottom: 5),
+                            child: Text(
+                              "Availibility: ",
+                              style: TextStyle(
+                                  fontSize: 18, fontFamily: 'quicksand'),
+                            ),
+                          ),
+                          // insert available data
+                        ],
+                      ),
+                      const Padding(padding: EdgeInsets.only(top: 14)),
+                      Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                        Column(
+                          children: [
+                            Text(
+                              "17:00 - 20:00",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            SizedBox(
+                              height: 4,
+                            ),
+                            Container(
+                                padding: EdgeInsets.only(top: 1, right: 1),
+                                child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      shape: MaterialStateProperty.all<
+                                              RoundedRectangleBorder>(
+                                          RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      )),
+                                      backgroundColor: MaterialStatePropertyAll(
+                                          Colors.blueGrey)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        right: 32, left: 32),
+                                    child: Text(
+                                      "Available",
+                                      style: TextStyle(fontSize: 15),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                )),
+                          ],
+                        )
+                      ])
+                    ]),
+              ),
+            ),
           ],
         ),
       ),
