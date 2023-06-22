@@ -81,6 +81,11 @@ class _SpeechScreenState extends State<SpeechScreen> {
                   suffixIcon: getIcon(inputChat.text),
                 ),
                 controller: inputChat,
+                onChanged: (text) {
+                  setState(() {
+                    getIcon(inputChat.text);
+                  });
+                },
                 onSubmitted: (text) async {
                   messages
                       .add(ChatMessage(text: text, type: ChatMessageType.user));
@@ -134,12 +139,23 @@ class _SpeechScreenState extends State<SpeechScreen> {
     }
   }
 
-  Icon getIcon(String text) {
-    if (text.length > 1) {
-      return Icon(
-        Icons.send,
-        size: 32,
-        color: signInColor,
+  getIcon(String text) {
+    if (text.length > 0) {
+      return GestureDetector(
+        child: Icon(
+          Icons.send,
+          size: 32,
+          color: signInColor,
+        ),
+        onTap: () async {
+          messages.add(ChatMessage(text: text, type: ChatMessageType.user));
+          var msg = await ApiServices.sendMessage(text);
+          String tmsg = msg.toString().trim();
+          setState(() {
+            messages.add(ChatMessage(text: tmsg, type: ChatMessageType.bot));
+            inputChat.clear();
+          });
+        },
       );
     } else {
       return Icon(
