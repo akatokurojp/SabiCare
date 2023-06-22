@@ -30,11 +30,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(
-          Icons.keyboard_return_rounded,
-          color: Colors.white,
-          size: 32,
-        ),
+        leading: topBackButton,
         centerTitle: true,
         backgroundColor: bgColor,
         elevation: 0,
@@ -59,8 +55,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
               child: Container(
                 padding: const EdgeInsets.only(top: 8),
                 decoration: BoxDecoration(
-                    color: chatBgColor,
-                    borderRadius: BorderRadius.circular(12)),
+                    color: textColor, borderRadius: BorderRadius.circular(12)),
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   controller: scrollController,
@@ -80,6 +75,11 @@ class _SpeechScreenState extends State<SpeechScreen> {
                 bottom: 1,
               ),
               child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Write a message here!",
+                  hintStyle: TextStyle(color: fadeGray),
+                  suffixIcon: getIcon(inputChat.text),
+                ),
                 controller: inputChat,
                 onSubmitted: (text) async {
                   messages
@@ -116,9 +116,9 @@ class _SpeechScreenState extends State<SpeechScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AvatarBubble(type),
-          SpacingBubble(),
-          MessageBubble(type, chattext)
+          avatarBubble(type),
+          spacingBubble(),
+          messageBubble(type, chattext)
         ],
       );
     } else {
@@ -126,21 +126,37 @@ class _SpeechScreenState extends State<SpeechScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MessageBubble(type, chattext),
-          SpacingBubble(),
-          AvatarBubble(type),
+          messageBubble(type, chattext),
+          spacingBubble(),
+          // avatarBubble(type),
         ],
       );
     }
   }
 
-  SizedBox SpacingBubble() {
+  Icon getIcon(String text) {
+    if (text.length > 1) {
+      return Icon(
+        Icons.send,
+        size: 32,
+        color: signInColor,
+      );
+    } else {
+      return Icon(
+        Icons.mic,
+        size: 32,
+        color: signInColor,
+      );
+    }
+  }
+
+  SizedBox spacingBubble() {
     return const SizedBox(
       width: 12,
     );
   }
 
-  CircleAvatar AvatarBubble(ChatMessageType? type) {
+  CircleAvatar avatarBubble(ChatMessageType? type) {
     return CircleAvatar(
       backgroundColor: bgColor,
       child: type == ChatMessageType.bot
@@ -149,7 +165,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
     );
   }
 
-  Container MessageBubble(ChatMessageType? type, chattext) {
+  Container messageBubble(ChatMessageType? type, chattext) {
     return Container(
       width: MediaQuery.of(context).size.width / 1.445,
       child: Container(
@@ -157,10 +173,14 @@ class _SpeechScreenState extends State<SpeechScreen> {
         padding: const EdgeInsets.all(12),
         margin: const EdgeInsets.only(bottom: 12),
         decoration: BoxDecoration(
-          color: type == ChatMessageType.bot ? bgColor : Colors.white,
-          borderRadius: const BorderRadius.only(
-            topRight: Radius.circular(12),
-            topLeft: Radius.circular(12),
+          color: type == ChatMessageType.bot ? bgColor : Colors.grey,
+          borderRadius: BorderRadius.only(
+            topRight: type == ChatMessageType.bot
+                ? Radius.circular(12)
+                : Radius.circular(1),
+            topLeft: type == ChatMessageType.bot
+                ? Radius.circular(1)
+                : Radius.circular(12),
             bottomRight: Radius.circular(12),
             bottomLeft: Radius.circular(12),
           ),
@@ -168,7 +188,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
         child: Text(
           "$chattext",
           style: TextStyle(
-              color: type == ChatMessageType.bot ? textColor : chatBgColor,
+              color: type == ChatMessageType.bot ? textColor : Colors.black,
               fontSize: 15,
               fontWeight: type == ChatMessageType.bot
                   ? FontWeight.w600

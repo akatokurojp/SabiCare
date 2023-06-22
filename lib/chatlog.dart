@@ -13,11 +13,7 @@ class _ChatLogPageState extends State<ChatLogPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(
-          Icons.keyboard_return,
-          color: Colors.white,
-          size: 32,
-        ),
+        leading: topBackButton,
         centerTitle: true,
         backgroundColor: bgColor,
         elevation: 0,
