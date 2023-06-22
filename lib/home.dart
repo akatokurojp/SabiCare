@@ -163,7 +163,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(top: 5),
-                    child: Text("Your all-in-one ENT app",
+                    child: Text("Your all-in-one consultation app",
                         style: TextStyle(color: Colors.white)),
                   )
                 ], // SABICARE Your All-in-one ENT App
@@ -219,7 +219,7 @@ class _HomePageState extends State<HomePage> {
                       const Padding(
                         padding: EdgeInsets.only(top: 5, bottom: 5),
                         child: Text(
-                          "SABICARE: Book ENT appointment easy, fast, and hassle-free ",
+                          "SABICARE: Book an appointment easy, fast, and hassle-free ",
                           style:
                               TextStyle(fontSize: 14, fontFamily: 'quicksand'),
                         ),

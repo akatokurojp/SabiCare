@@ -36,7 +36,7 @@ class _BookingPageState extends State<BookingPage> {
             const Padding(
               padding: EdgeInsets.only(left: 20, top: 5),
               child: Text(
-                "April, 2022",
+                " ",
                 style: TextStyle(fontSize: 18, color: textColor),
               ),
             ),
@@ -47,11 +47,11 @@ class _BookingPageState extends State<BookingPage> {
                 children: List.generate(30, (int index) {
                   DateTime currentDate = DateTime.now();
                   DateTime oneMonthLater =
-                      currentDate.add(Duration(days: 30 * index));
+                      currentDate.add(Duration(hours: 30 * index));
 
                   // Format the date using DateFormat
                   String formattedDate =
-                      DateFormat('yyyy-MM-dd').format(oneMonthLater);
+                      DateFormat('dd-MM').format(oneMonthLater);
 // 'dd' for two-digit date format
 
                   // Format the day using DateFormat

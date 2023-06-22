@@ -15,7 +15,7 @@ class SpeechScreen extends StatefulWidget {
 
 class _SpeechScreenState extends State<SpeechScreen> {
   SpeechToText speechToText = SpeechToText();
-  var text = "Hold the button and start speaking ";
+  var text = "Type or hold the mic button to respond";
   var isListening = false;
   final List<ChatMessage> messages = [];
   TextEditingController inputChat = TextEditingController();
@@ -77,7 +77,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
               child: TextField(
                 decoration: InputDecoration(
                   hintText: "Write a message here!",
-                  hintStyle: TextStyle(color: fadeGray),
+                  hintStyle: const TextStyle(color: fadeGray),
                   suffixIcon: getIcon(inputChat.text),
                 ),
                 controller: inputChat,
@@ -140,9 +140,9 @@ class _SpeechScreenState extends State<SpeechScreen> {
   }
 
   getIcon(String text) {
-    if (text.length > 0) {
+    if (text.isNotEmpty) {
       return GestureDetector(
-        child: Icon(
+        child: const Icon(
           Icons.send,
           size: 32,
           color: signInColor,
@@ -158,7 +158,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
         },
       );
     } else {
-      return Icon(
+      return const Icon(
         Icons.mic,
         size: 32,
         color: signInColor,
