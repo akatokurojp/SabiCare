@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                 // avatar row for options
                 const Padding(padding: EdgeInsets.all(5)),
                 GestureDetector(
-                  child: const Column(
+                  child: Column(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(
@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                   // onTap: () => ,
                 ),
                 GestureDetector(
-                  child: const Column(
+                  child: Column(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(
@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                   // onTap: () => ,
                 ),
                 GestureDetector(
-                  child: const Column(
+                  child: Column(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(
@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                   // onTap: () => ,
                 ),
                 GestureDetector(
-                  child: const Column(
+                  child: Column(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(
@@ -139,8 +139,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            const Padding(padding: EdgeInsets.all(10)),
-            const Padding(
+            Padding(padding: EdgeInsets.all(10)),
+            Padding(
               padding: EdgeInsets.only(left: 25),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -111,42 +111,70 @@ class _SpeechScreenState extends State<SpeechScreen> {
   }
 
   Widget chatBubble({required chattext, required ChatMessageType? type}) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CircleAvatar(
-          backgroundColor: bgColor,
-          child: type == ChatMessageType.bot
-              ? Image.asset('assets/icon.png')
-              : const Icon(Icons.person, color: Colors.white),
-        ),
-        const SizedBox(
-          width: 12,
-        ),
-        Expanded(
-          child: Container(
-            padding: const EdgeInsets.all(12),
-            margin: const EdgeInsets.only(bottom: 12),
-            decoration: BoxDecoration(
-              color: type == ChatMessageType.bot ? bgColor : Colors.white,
-              borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(12),
-                bottomRight: Radius.circular(12),
-                bottomLeft: Radius.circular(12),
-              ),
-            ),
-            child: Text(
-              "$chattext",
-              style: TextStyle(
-                  color: type == ChatMessageType.bot ? textColor : chatBgColor,
-                  fontSize: 15,
-                  fontWeight: type == ChatMessageType.bot
-                      ? FontWeight.w600
-                      : FontWeight.w400),
-            ),
+    if (type == ChatMessageType.bot) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AvatarBubble(type),
+          SpacingBubble(),
+          MessageBubble(type, chattext)
+        ],
+      );
+    } else {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          MessageBubble(type, chattext),
+          SpacingBubble(),
+          AvatarBubble(type),
+        ],
+      );
+    }
+  }
+
+  SizedBox SpacingBubble() {
+    return const SizedBox(
+      width: 12,
+    );
+  }
+
+  CircleAvatar AvatarBubble(ChatMessageType? type) {
+    return CircleAvatar(
+      backgroundColor: bgColor,
+      child: type == ChatMessageType.bot
+          ? Image.asset('assets/icon.png')
+          : const Icon(Icons.person, color: Colors.white),
+    );
+  }
+
+  Container MessageBubble(ChatMessageType? type, chattext) {
+    return Container(
+      width: MediaQuery.of(context).size.width / 1.445,
+      child: Container(
+        // width: 150,
+        padding: const EdgeInsets.all(12),
+        margin: const EdgeInsets.only(bottom: 12),
+        decoration: BoxDecoration(
+          color: type == ChatMessageType.bot ? bgColor : Colors.white,
+          borderRadius: const BorderRadius.only(
+            topRight: Radius.circular(12),
+            topLeft: Radius.circular(12),
+            bottomRight: Radius.circular(12),
+            bottomLeft: Radius.circular(12),
           ),
         ),
-      ],
+        child: Text(
+          "$chattext",
+          style: TextStyle(
+              color: type == ChatMessageType.bot ? textColor : chatBgColor,
+              fontSize: 15,
+              fontWeight: type == ChatMessageType.bot
+                  ? FontWeight.w600
+                  : FontWeight.w400),
+        ),
+      ),
     );
   }
 }
