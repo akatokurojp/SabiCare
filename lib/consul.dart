@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -29,7 +31,11 @@ class _ConsultationPageState extends State<ConsultationPage> {
                   // visualDensity: VisualDensity(horizontal: 1),
                   // dense: true,
                   leading: CircleAvatar(
-                    child: Text("P"),
+                    radius: 30,
+                    child: Icon(
+                      Icons.person,
+                      size: 40,
+                    ),
                   ),
                   title: Text('Doctor Aberdeen'),
                   // subtitle: Text('It seems you have a conditions of ligma'),
@@ -38,7 +44,6 @@ class _ConsultationPageState extends State<ConsultationPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    // ignore: prefer_const_literals_to_create_immutables
                     Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -65,6 +70,9 @@ class _ConsultationPageState extends State<ConsultationPage> {
                           ),
                           // const Padding(padding: EdgeInsets.only(top: 8)),
                         ]),
+                    SizedBox(
+                      width: 50,
+                    ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -83,6 +91,9 @@ class _ConsultationPageState extends State<ConsultationPage> {
                         ),
                       ],
                     ),
+                    // SizedBox(
+                    //   width: 1,
+                    // )
                   ],
                 ),
               ],
@@ -96,5 +107,5 @@ class _ConsultationPageState extends State<ConsultationPage> {
   EdgeInsets consulPadding() => EdgeInsets.only(top: 5, bottom: 5);
 
   TextStyle consulTextStyle() =>
-      TextStyle(fontSize: 15, fontFamily: 'quicksand');
+      TextStyle(fontSize: 16, fontFamily: 'quicksand');
 }
