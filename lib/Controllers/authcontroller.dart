@@ -4,13 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:path/path.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:sabicare/home.dart';
-import 'package:sabicare/chatlog.dart';
-
 import '../Login.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthController extends GetxController {
   // sign up text editing controllers
@@ -38,7 +34,7 @@ class AuthController extends GetxController {
       firestore.collection('users').doc(user.user!.uid).set(
           {"email": emailController.text, "password": passwordController.text});
       if (user != null) {
-        Get.to(LoginPage());
+        Get.to(const LoginPage());
       } else {
         print('error');
       }
@@ -54,7 +50,7 @@ class AuthController extends GetxController {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString("userID", user.user!.uid);
       print(user.user!.uid);
-      Get.to(HomePage());
+      Get.to(const HomePage());
     } else {
       print('error');
     }
@@ -66,7 +62,7 @@ class AuthController extends GetxController {
     await _auth.signOut();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.clear();
-    Get.offAll(LoginPage());
+    Get.offAll(const LoginPage());
   }
 
   bool passwordConfirmed() {

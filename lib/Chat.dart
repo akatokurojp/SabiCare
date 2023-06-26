@@ -1,9 +1,5 @@
-import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:lit_ui_kit/lit_ui_kit.dart';
-import 'package:sabicare/Controllers/authcontroller.dart';
 import 'package:sabicare/controllers/gptapiservices.dart';
 import 'package:sabicare/static/chatmodel.dart';
 import 'package:sabicare/static/colors.dart';
@@ -19,13 +15,15 @@ class SpeechScreen extends StatefulWidget {
 
 class _SpeechScreenState extends State<SpeechScreen> {
   SpeechToText speechToText = SpeechToText();
-  var text = "Hold the button and start speaking ";
+  var text = "Type or hold the mic button to respond";
   var isListening = false;
   final List<ChatMessage> messages = [];
+  TextEditingController inputChat = TextEditingController();
 
   var scrollController = ScrollController();
   scrollMethod() {
     scrollController.animateTo(scrollController.position.maxScrollExtent,
+        duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
         duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
   }
 
@@ -33,7 +31,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(
+        leading: Icon(
           Icons.keyboard_return_rounded,
           color: Colors.white,
           size: 32,
@@ -57,28 +55,12 @@ class _SpeechScreenState extends State<SpeechScreen> {
                   color: isListening ? Colors.black87 : Colors.black54,
                   fontWeight: FontWeight.w600),
             ),
-            FutureBuilder(
-              future: _fetchListMsg(),
-              builder: (context, AsyncSnapshot snapshot) {
-                return ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  controller: scrollController,
-                  shrinkWrap: true,
-                  itemCount: snapshot.data.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    var chat = messages[index];
-                    return chatBubble(chattext: chat.text, type: chat.type);
-                  },
-                );
-              },
-            ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Expanded(
               child: Container(
                 padding: const EdgeInsets.only(top: 8),
                 decoration: BoxDecoration(
-                    color: chatBgColor,
-                    borderRadius: BorderRadius.circular(12)),
+                    color: textColor, borderRadius: BorderRadius.circular(12)),
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   controller: scrollController,
@@ -98,37 +80,39 @@ class _SpeechScreenState extends State<SpeechScreen> {
                 bottom: 1,
               ),
               child: TextField(
-                // onChanged: (text) async {
-                //   messages
-                //       .add(ChatMessage(text: text, type: ChatMessageType.user));
-                //   var msg = await ApiServices.sendMessage(text);
-                //   msg = msg.trim();
-
-                //   setState(() {
-                //     messages
-                //         .add(ChatMessage(text: msg, type: ChatMessageType.bot));
-                //   });
-
-                //   Future.delayed(const Duration(milliseconds: 500), () {
-                //     TextToSpeech.speak(msg);
-                //   });
-                // },
-                onSubmitted: (text) async {
+                onChanged: (text) async {
                   messages
                       .add(ChatMessage(text: text, type: ChatMessageType.user));
                   var msg = await ApiServices.sendMessage(text);
                   msg = msg.trim();
-                  print(text);
 
                   setState(() {
                     messages
                         .add(ChatMessage(text: msg, type: ChatMessageType.bot));
                   });
 
+                  Future.delayed(Duration(milliseconds: 500), () {
+                    TextToSpeech.speak(msg);
+                  });
+                },
+                onSubmitted: (text) async {
+                  messages
+                      .add(ChatMessage(text: text, type: ChatMessageType.user));
+                  var msg = await ApiServices.sendMessage(text);
+                  String tmsg = msg.toString().trim();
+                  // msg = msg.trim();
+                  print(text);
+
+                  setState(() {
+                    messages.add(
+                        ChatMessage(text: tmsg, type: ChatMessageType.bot));
+                    inputChat.clear();
+                  });
+
                   Future.delayed(
                     const Duration(milliseconds: 500),
                     () {
-                      TextToSpeech.speak(msg);
+                      TextToSpeech.speak(tmsg);
                     },
                   );
                 },
@@ -148,18 +132,18 @@ class _SpeechScreenState extends State<SpeechScreen> {
           backgroundColor: bgColor,
           child: type == ChatMessageType.bot
               ? Image.asset('assets/icon.png')
-              : const Icon(Icons.person, color: Colors.white),
+              : Icon(Icons.person, color: Colors.white),
         ),
         const SizedBox(
           width: 12,
         ),
         Expanded(
           child: Container(
-            padding: const EdgeInsets.all(12),
-            margin: const EdgeInsets.only(bottom: 12),
+            padding: EdgeInsets.all(12),
+            margin: EdgeInsets.only(bottom: 12),
             decoration: BoxDecoration(
               color: type == ChatMessageType.bot ? bgColor : Colors.white,
-              borderRadius: const BorderRadius.only(
+              borderRadius: BorderRadius.only(
                 topRight: Radius.circular(12),
                 bottomRight: Radius.circular(12),
                 bottomLeft: Radius.circular(12),
