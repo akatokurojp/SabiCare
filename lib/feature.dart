@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -45,7 +47,7 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                         padding: EdgeInsets.only(right: 8, left: 8),
                         child: Text(
                           "Edit",
-                          style: TextStyle(fontSize: 15),
+                          style: TextStyle(fontSize: 14),
                         ),
                       ),
                       onPressed: () {},
@@ -139,10 +141,155 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                 ),
               ],
             ),
-            Padding(padding: EdgeInsets.all(10)),
+            SizedBox(
+              height: 25,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 12),
+                  child: Text(
+                    "Main features",
+                    style: TextStyle(fontSize: 25, color: textColor),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 4, top: 8),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                        radius: 30,
+                        child: Icon(
+                          Icons.medical_information,
+                          size: 30,
+                        )),
+                    title: Text(
+                      "Chat with Doctor",
+                      style: featureText(),
+                    ),
+                    subtitle: Text(
+                      "Consultation with your doctor",
+                      style: featureText(),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 4.0),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                        radius: 30,
+                        child: Icon(
+                          Icons.store,
+                          size: 30,
+                        )),
+                    title: Text(
+                      "Drug Store",
+                      style: featureText(),
+                    ),
+                    subtitle: Text(
+                      "Your trusted apothecary",
+                      style: featureText(),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 4.0),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                        radius: 30,
+                        child: Icon(
+                          Icons.calendar_month,
+                          size: 30,
+                        )),
+                    title: Text(
+                      "Set an Appointment",
+                      style: featureText(),
+                    ),
+                    subtitle: Text(
+                      "Set an offline appointment",
+                      style: featureText(),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 4),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 12),
+                  child: Text(
+                    "Specialized Features",
+                    style: TextStyle(fontSize: 25, color: textColor),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 4, top: 8),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                        radius: 30,
+                        child: Icon(
+                          Icons.mark_chat_read_sharp,
+                          size: 30,
+                        )),
+                    title: Text(
+                      "Diagnose yourself",
+                      style: featureText(),
+                    ),
+                    subtitle: Text(
+                      "Talk with our chatbot",
+                      style: featureText(),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 4),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 12),
+                  child: Text(
+                    "User Settings",
+                    style: TextStyle(fontSize: 25, color: textColor),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 4, top: 8),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                        radius: 30,
+                        child: Icon(
+                          Icons.account_box,
+                          size: 30,
+                        )),
+                    title: Text(
+                      "Your profile",
+                      style: featureText(),
+                    ),
+                    subtitle: Text(
+                      "Set your profile",
+                      style: featureText(),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 25,
+            )
           ],
         ),
       )),
     );
+  }
+
+  TextStyle featureText() {
+    return TextStyle(color: textColor, fontSize: 17, fontFamily: 'quicksand');
   }
 }
