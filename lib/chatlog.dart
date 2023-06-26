@@ -12,16 +12,7 @@ class _ChatLogPageState extends State<ChatLogPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: topBackButton,
-        centerTitle: true,
-        backgroundColor: bgColor,
-        elevation: 0,
-        title: const Text(
-          "Messages",
-          style: TextStyle(fontWeight: FontWeight.w600, color: textColor),
-        ),
-      ),
+      appBar: topBar("Messages"),
       body: SafeArea(
           child: ListView(
         children: [

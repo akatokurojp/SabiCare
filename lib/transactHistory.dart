@@ -15,20 +15,7 @@ class _TransactionHistoryPageState extends State<TransactionHistoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(
-          Icons.keyboard_return,
-          color: Colors.white,
-          size: 32,
-        ),
-        centerTitle: true,
-        backgroundColor: bgColor,
-        elevation: 0,
-        title: const Text(
-          "Transaction history",
-          style: TextStyle(fontWeight: FontWeight.w600, color: textColor),
-        ),
-      ),
+      appBar: topBar("Transaction History"),
       body: SafeArea(
           child: ListView(
         children: [

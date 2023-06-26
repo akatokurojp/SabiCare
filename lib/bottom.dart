@@ -28,6 +28,8 @@ class _BottomPageState extends State<BottomPage> {
     const LoginPage(),
     const BookingPage(),
     const ConsultationPage(),
+    const ChatLogPage(),
+    const TransactionHistoryPage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -65,6 +67,11 @@ class _BottomPageState extends State<BottomPage> {
                   icon: Icon(Icons.message_outlined), label: 'Home'),
               const BottomNavigationBarItem(
                   icon: Icon(Icons.person_outline), label: 'Home'),
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.format_list_numbered_rtl_sharp),
+                  label: 'Home'),
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.history), label: 'Home'),
             ],
           ),
         ),
