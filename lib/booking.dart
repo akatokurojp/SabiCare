@@ -42,7 +42,7 @@ class _BookingPageState extends State<BookingPage> {
               ),
             ),
             SizedBox(
-              height: 100,
+              height: 85,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: List.generate(30, (int index) {
@@ -62,7 +62,7 @@ class _BookingPageState extends State<BookingPage> {
                   return Card(
                     color: textColor,
                     child: SizedBox(
-                      width: 100.0,
+                      width: 85.0,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
