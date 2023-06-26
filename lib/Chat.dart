@@ -24,13 +24,18 @@ class _SpeechScreenState extends State<SpeechScreen> {
   scrollMethod() {
     scrollController.animateTo(scrollController.position.maxScrollExtent,
         duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+        duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: topBackButton,
+        leading: Icon(
+          Icons.keyboard_return_rounded,
+          color: Colors.white,
+          size: 32,
+        ),
         centerTitle: true,
         backgroundColor: bgColor,
         elevation: 0,
@@ -50,7 +55,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
                   color: isListening ? Colors.black87 : Colors.black54,
                   fontWeight: FontWeight.w600),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             Expanded(
               child: Container(
                 padding: const EdgeInsets.only(top: 8),
@@ -75,15 +80,19 @@ class _SpeechScreenState extends State<SpeechScreen> {
                 bottom: 1,
               ),
               child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Write a message here!",
-                  hintStyle: const TextStyle(color: fadeGray),
-                  suffixIcon: getIcon(inputChat.text),
-                ),
-                controller: inputChat,
-                onChanged: (text) {
+                onChanged: (text) async {
+                  messages
+                      .add(ChatMessage(text: text, type: ChatMessageType.user));
+                  var msg = await ApiServices.sendMessage(text);
+                  msg = msg.trim();
+
                   setState(() {
-                    getIcon(inputChat.text);
+                    messages
+                        .add(ChatMessage(text: msg, type: ChatMessageType.bot));
+                  });
+
+                  Future.delayed(Duration(milliseconds: 500), () {
+                    TextToSpeech.speak(msg);
                   });
                 },
                 onSubmitted: (text) async {
@@ -116,101 +125,46 @@ class _SpeechScreenState extends State<SpeechScreen> {
   }
 
   Widget chatBubble({required chattext, required ChatMessageType? type}) {
-    if (type == ChatMessageType.bot) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          avatarBubble(type),
-          spacingBubble(),
-          messageBubble(type, chattext)
-        ],
-      );
-    } else {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          messageBubble(type, chattext),
-          spacingBubble(),
-          // avatarBubble(type),
-        ],
-      );
-    }
-  }
-
-  getIcon(String text) {
-    if (text.isNotEmpty) {
-      return GestureDetector(
-        child: const Icon(
-          Icons.send,
-          size: 32,
-          color: signInColor,
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CircleAvatar(
+          backgroundColor: bgColor,
+          child: type == ChatMessageType.bot
+              ? Image.asset('assets/icon.png')
+              : Icon(Icons.person, color: Colors.white),
         ),
-        onTap: () async {
-          messages.add(ChatMessage(text: text, type: ChatMessageType.user));
-          var msg = await ApiServices.sendMessage(text);
-          String tmsg = msg.toString().trim();
-          setState(() {
-            messages.add(ChatMessage(text: tmsg, type: ChatMessageType.bot));
-            inputChat.clear();
-          });
-        },
-      );
-    } else {
-      return const Icon(
-        Icons.mic,
-        size: 32,
-        color: signInColor,
-      );
-    }
-  }
-
-  SizedBox spacingBubble() {
-    return const SizedBox(
-      width: 12,
-    );
-  }
-
-  CircleAvatar avatarBubble(ChatMessageType? type) {
-    return CircleAvatar(
-      backgroundColor: bgColor,
-      child: type == ChatMessageType.bot
-          ? Image.asset('assets/icon.png')
-          : const Icon(Icons.person, color: Colors.white),
-    );
-  }
-
-  Container messageBubble(ChatMessageType? type, chattext) {
-    return Container(
-      width: MediaQuery.of(context).size.width / 1.445,
-      child: Container(
-        // width: 150,
-        padding: const EdgeInsets.all(12),
-        margin: const EdgeInsets.only(bottom: 12),
-        decoration: BoxDecoration(
-          color: type == ChatMessageType.bot ? bgColor : Colors.grey,
-          borderRadius: BorderRadius.only(
-            topRight: type == ChatMessageType.bot
-                ? Radius.circular(12)
-                : Radius.circular(1),
-            topLeft: type == ChatMessageType.bot
-                ? Radius.circular(1)
-                : Radius.circular(12),
-            bottomRight: Radius.circular(12),
-            bottomLeft: Radius.circular(12),
+        const SizedBox(
+          width: 12,
+        ),
+        Expanded(
+          child: Container(
+            padding: EdgeInsets.all(12),
+            margin: EdgeInsets.only(bottom: 12),
+            decoration: BoxDecoration(
+              color: type == ChatMessageType.bot ? bgColor : Colors.white,
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(12),
+                bottomRight: Radius.circular(12),
+                bottomLeft: Radius.circular(12),
+              ),
+            ),
+            child: Text(
+              "$chattext",
+              style: TextStyle(
+                  color: type == ChatMessageType.bot ? textColor : chatBgColor,
+                  fontSize: 15,
+                  fontWeight: type == ChatMessageType.bot
+                      ? FontWeight.w600
+                      : FontWeight.w400),
+            ),
           ),
         ),
-        child: Text(
-          "$chattext",
-          style: TextStyle(
-              color: type == ChatMessageType.bot ? textColor : Colors.black,
-              fontSize: 15,
-              fontWeight: type == ChatMessageType.bot
-                  ? FontWeight.w600
-                  : FontWeight.w400),
-        ),
-      ),
+      ],
     );
+  }
+
+  _fetchListMsg() async {
+    return messages;
   }
 }
