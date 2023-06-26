@@ -157,58 +157,67 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 4, top: 8),
-                  child: ListTile(
-                    leading: CircleAvatar(
-                        radius: 30,
-                        child: Icon(
-                          Icons.medical_information,
-                          size: 30,
-                        )),
-                    title: Text(
-                      "Chat with Doctor",
-                      style: featureText(),
-                    ),
-                    subtitle: Text(
-                      "Consultation with your doctor",
-                      style: featureText(),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 4.0),
-                  child: ListTile(
-                    leading: CircleAvatar(
-                        radius: 30,
-                        child: Icon(
-                          Icons.store,
-                          size: 30,
-                        )),
-                    title: Text(
-                      "Drug Store",
-                      style: featureText(),
-                    ),
-                    subtitle: Text(
-                      "Your trusted apothecary",
-                      style: featureText(),
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: ListTile(
+                      leading: CircleAvatar(
+                          radius: 30,
+                          child: Icon(
+                            Icons.medical_information,
+                            size: 30,
+                          )),
+                      title: Text(
+                        "Chat with Doctor",
+                        style: featureText(),
+                      ),
+                      subtitle: Text(
+                        "Consultation with your doctor",
+                        style: featureText(),
+                      ),
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 4.0),
-                  child: ListTile(
-                    leading: CircleAvatar(
-                        radius: 30,
-                        child: Icon(
-                          Icons.calendar_month,
-                          size: 30,
-                        )),
-                    title: Text(
-                      "Set an Appointment",
-                      style: featureText(),
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: ListTile(
+                      leading: CircleAvatar(
+                          radius: 30,
+                          child: Icon(
+                            Icons.store,
+                            size: 30,
+                          )),
+                      title: Text(
+                        "Drug Store",
+                        style: featureText(),
+                      ),
+                      subtitle: Text(
+                        "Your trusted apothecary",
+                        style: featureText(),
+                      ),
                     ),
-                    subtitle: Text(
-                      "Set an offline appointment",
-                      style: featureText(),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 4.0),
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: ListTile(
+                      leading: CircleAvatar(
+                          radius: 30,
+                          child: Icon(
+                            Icons.calendar_month,
+                            size: 30,
+                          )),
+                      title: Text(
+                        "Set an Appointment",
+                        style: featureText(),
+                      ),
+                      subtitle: Text(
+                        "Set an offline appointment",
+                        style: featureText(),
+                      ),
                     ),
                   ),
                 ),
@@ -228,20 +237,23 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 4, top: 8),
-                  child: ListTile(
-                    leading: CircleAvatar(
-                        radius: 30,
-                        child: Icon(
-                          Icons.mark_chat_read_sharp,
-                          size: 30,
-                        )),
-                    title: Text(
-                      "Diagnose yourself",
-                      style: featureText(),
-                    ),
-                    subtitle: Text(
-                      "Talk with our chatbot",
-                      style: featureText(),
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: ListTile(
+                      leading: CircleAvatar(
+                          radius: 30,
+                          child: Icon(
+                            Icons.mark_chat_read_sharp,
+                            size: 30,
+                          )),
+                      title: Text(
+                        "Diagnose yourself",
+                        style: featureText(),
+                      ),
+                      subtitle: Text(
+                        "Talk with our chatbot",
+                        style: featureText(),
+                      ),
                     ),
                   ),
                 ),
@@ -261,20 +273,23 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 4, top: 8),
-                  child: ListTile(
-                    leading: CircleAvatar(
-                        radius: 30,
-                        child: Icon(
-                          Icons.account_box,
-                          size: 30,
-                        )),
-                    title: Text(
-                      "Your profile",
-                      style: featureText(),
-                    ),
-                    subtitle: Text(
-                      "Set your profile",
-                      style: featureText(),
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: ListTile(
+                      leading: CircleAvatar(
+                          radius: 30,
+                          child: Icon(
+                            Icons.account_box,
+                            size: 30,
+                          )),
+                      title: Text(
+                        "Your profile",
+                        style: featureText(),
+                      ),
+                      subtitle: Text(
+                        "Set your profile",
+                        style: featureText(),
+                      ),
                     ),
                   ),
                 ),
