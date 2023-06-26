@@ -14,16 +14,7 @@ class _BookingPageState extends State<BookingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: topBackButton,
-        centerTitle: true,
-        backgroundColor: bgColor,
-        elevation: 0,
-        title: const Text(
-          "Set appointment",
-          style: TextStyle(fontWeight: FontWeight.w600, color: textColor),
-        ),
-      ),
+      appBar: topBar("Set appointment"),
       body: SafeArea(
         child: ListView(
           children: <Widget>[
