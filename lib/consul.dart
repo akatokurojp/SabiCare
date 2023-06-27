@@ -17,7 +17,9 @@ class _ConsultationPageState extends State<ConsultationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: topBar("Chat with doctors"),
+
       body: SafeArea(
           child: ListView(
         children: [
