@@ -7,6 +7,7 @@ import 'package:sabicare/consul.dart';
 import 'package:sabicare/feature.dart';
 import 'package:sabicare/home.dart';
 import 'package:sabicare/transactHistory.dart';
+import 'package:sabicare/userDetails.dart';
 
 class BottomPage extends StatefulWidget {
   const BottomPage({super.key});
@@ -31,7 +32,8 @@ class _BottomPageState extends State<BottomPage> {
     const ConsultationPage(),
     const ChatLogPage(),
     const TransactionHistoryPage(),
-    const CompleteFeaturePage()
+    const CompleteFeaturePage(),
+    const UserDetailsPage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -76,6 +78,8 @@ class _BottomPageState extends State<BottomPage> {
                   icon: Icon(Icons.history), label: 'Home'),
               const BottomNavigationBarItem(
                   icon: Icon(Icons.window), label: 'Home'),
+              const BottomNavigationBarItem(
+                  icon: Icon(Icons.details), label: 'Home'),
             ],
           ),
         ),
