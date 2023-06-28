@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:sabicare/static/colors.dart';
 
 class UserDetailsPage extends StatefulWidget {
@@ -11,6 +9,7 @@ class UserDetailsPage extends StatefulWidget {
 }
 
 class _UserDetailsPageState extends State<UserDetailsPage> {
+  List<String> listDocument = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,16 +17,16 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
       body: SafeArea(
           child: ListView(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
-            padding: EdgeInsets.only(left: 16, right: 16),
+            padding: const EdgeInsets.only(left: 16, right: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: Text(
                     "Data",
                     style: detailText(),
@@ -36,8 +35,8 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                 Card(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
-                        side: BorderSide(width: 1, color: Colors.black)),
-                    child: Padding(
+                        side: const BorderSide(width: 1, color: Colors.black)),
+                    child: const Padding(
                       padding: EdgeInsets.only(
                         left: 12,
                       ),
@@ -54,5 +53,5 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
     );
   }
 
-  TextStyle detailText() => TextStyle(color: textColor, fontSize: 18);
+  TextStyle detailText() => const TextStyle(color: textColor, fontSize: 18);
 }
