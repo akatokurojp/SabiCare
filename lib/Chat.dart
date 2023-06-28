@@ -31,7 +31,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
+        leading: const Icon(
           Icons.keyboard_return_rounded,
           color: Colors.white,
           size: 32,
@@ -55,7 +55,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
                   color: isListening ? Colors.black87 : Colors.black54,
                   fontWeight: FontWeight.w600),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: Container(
                 padding: const EdgeInsets.only(top: 8),
@@ -91,7 +91,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
                         .add(ChatMessage(text: msg, type: ChatMessageType.bot));
                   });
 
-                  Future.delayed(Duration(milliseconds: 500), () {
+                  Future.delayed(const Duration(milliseconds: 500), () {
                     TextToSpeech.speak(msg);
                   });
                 },
@@ -132,18 +132,18 @@ class _SpeechScreenState extends State<SpeechScreen> {
           backgroundColor: bgColor,
           child: type == ChatMessageType.bot
               ? Image.asset('assets/icon.png')
-              : Icon(Icons.person, color: Colors.white),
+              : const Icon(Icons.person, color: Colors.white),
         ),
         const SizedBox(
           width: 12,
         ),
         Expanded(
           child: Container(
-            padding: EdgeInsets.all(12),
-            margin: EdgeInsets.only(bottom: 12),
+            padding: const EdgeInsets.all(12),
+            margin: const EdgeInsets.only(bottom: 12),
             decoration: BoxDecoration(
               color: type == ChatMessageType.bot ? bgColor : Colors.white,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(12),
                 bottomRight: Radius.circular(12),
                 bottomLeft: Radius.circular(12),
