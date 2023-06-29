@@ -137,7 +137,89 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                       _gender = value;
                     });
                   },
-                )
+                ),
+                detailSpacing(),
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(
+                    "Height",
+                    style: detailText(),
+                  ),
+                ),
+                Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        side: const BorderSide(width: 1, color: Colors.black)),
+                    child: const Padding(
+                      padding: EdgeInsets.only(
+                        left: 12,
+                      ),
+                      child: TextField(
+                        keyboardType: TextInputType.numberWithOptions(),
+                        style: TextStyle(fontSize: 15),
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          suffixIcon: CircleAvatar(
+                            backgroundColor: Colors.transparent,
+                            child: Text(
+                              "cm",
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )),
+                detailSpacing(),
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(
+                    "Weight",
+                    style: detailText(),
+                  ),
+                ),
+                Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        side: const BorderSide(width: 1, color: Colors.black)),
+                    child: const Padding(
+                      padding: EdgeInsets.only(
+                        left: 12,
+                      ),
+                      child: TextField(
+                        keyboardType: TextInputType.numberWithOptions(),
+                        style: TextStyle(fontSize: 15),
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          suffixIcon: CircleAvatar(
+                            backgroundColor: Colors.transparent,
+                            child: Text(
+                              "kg",
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )),
+                detailSpacing(),
+                detailSpacing(),
+                GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xff457B9D),
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Center(
+                            child: Text(
+                          "Submit",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                          ),
+                        )),
+                      )),
+                ),
               ],
             ),
           ),
