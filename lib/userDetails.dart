@@ -10,8 +10,11 @@ class UserDetailsPage extends StatefulWidget {
   State<UserDetailsPage> createState() => _UserDetailsPageState();
 }
 
+enum Gender { male, female }
+
 class _UserDetailsPageState extends State<UserDetailsPage> {
   DateTime? selectedDate;
+  Gender? _gender = Gender.male;
   List<String> listDocument = [];
   @override
   Widget build(BuildContext context) {
@@ -89,8 +92,9 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                           initialDate: DateTime(2000),
                           dateFormat: DateFormat('dd-MMMM-yyyy'),
                           mode: DateTimeFieldPickerMode.date,
-                          decoration:
-                              const InputDecoration(hintText: 'Date of Birth'),
+                          decoration: const InputDecoration(
+                            hintText: 'Date of Birth',
+                          ),
                           selectedDate: selectedDate,
                           onDateSelected: (DateTime value) {
                             setState(() {
@@ -98,6 +102,40 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                             });
                           }),
                     )),
+                detailSpacing(),
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(
+                    "Gender",
+                    style: detailText(),
+                  ),
+                ),
+                RadioListTile<Gender>(
+                  title: Text(
+                    "male",
+                    style: detailText(),
+                  ),
+                  value: Gender.male,
+                  groupValue: _gender,
+                  onChanged: (Gender? value) {
+                    setState(() {
+                      _gender = value;
+                    });
+                  },
+                ),
+                RadioListTile<Gender>(
+                  title: Text(
+                    "female",
+                    style: detailText(),
+                  ),
+                  value: Gender.female,
+                  groupValue: _gender,
+                  onChanged: (Gender? value) {
+                    setState(() {
+                      _gender = value;
+                    });
+                  },
+                )
               ],
             ),
           ),
