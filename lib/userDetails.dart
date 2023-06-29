@@ -111,6 +111,7 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                   ),
                 ),
                 RadioListTile<Gender>(
+                  // contentPadding: EdgeInsets.all(0),
                   title: Text(
                     "male",
                     style: detailText(),
@@ -124,6 +125,7 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                   },
                 ),
                 RadioListTile<Gender>(
+                  // contentPadding: EdgeInsets.all(0),
                   title: Text(
                     "female",
                     style: detailText(),
