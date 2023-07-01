@@ -1,13 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
-import 'package:lit_ui_kit/containers.dart';
 import 'package:sabicare/static/colors.dart';
 
-import 'Controllers/authcontroller.dart';
 
 class CompleteFeaturePage extends StatefulWidget {
   const CompleteFeaturePage({super.key});

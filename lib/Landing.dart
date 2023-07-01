@@ -47,9 +47,9 @@ class IntroScreen extends StatelessWidget {
             ),
 
             // we deliver groceries at your doorstep
-            Container(
+            const SizedBox(
               width: double.infinity,
-              child: const Padding(
+              child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
                   'Make your life healthier!',

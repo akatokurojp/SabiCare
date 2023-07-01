@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ExpertSystemDemo extends StatefulWidget {
+  const ExpertSystemDemo({super.key});
+
   @override
   _ExpertSystemDemoState createState() => _ExpertSystemDemoState();
 }
@@ -35,19 +37,19 @@ class _ExpertSystemDemoState extends State<ExpertSystemDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Expert System Demo'),
+        title: const Text('Expert System Demo'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Select Symptoms:',
               style: TextStyle(fontSize: 24),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             CheckboxListTile(
-              title: Text('Ear Hurting'),
+              title: const Text('Ear Hurting'),
               value: earHurting,
               onChanged: (value) {
                 setState(() {
@@ -56,7 +58,7 @@ class _ExpertSystemDemoState extends State<ExpertSystemDemo> {
               },
             ),
             CheckboxListTile(
-              title: Text('Ear Itchy'),
+              title: const Text('Ear Itchy'),
               value: earItchy,
               onChanged: (value) {
                 setState(() {
@@ -65,7 +67,7 @@ class _ExpertSystemDemoState extends State<ExpertSystemDemo> {
               },
             ),
             CheckboxListTile(
-              title: Text('Liquid Leaking'),
+              title: const Text('Liquid Leaking'),
               value: liquidLeaking,
               onChanged: (value) {
                 setState(() {
@@ -77,12 +79,12 @@ class _ExpertSystemDemoState extends State<ExpertSystemDemo> {
               onPressed: () {
                 diagnoseEarIssue();
               },
-              child: Text('Diagnose'),
+              child: const Text('Diagnose'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               'Diagnosis: $diagnosis',
-              style: TextStyle(fontSize: 24),
+              style: const TextStyle(fontSize: 24),
             ),
           ],
         ),

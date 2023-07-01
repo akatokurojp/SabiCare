@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                 // avatar row for options
                 const Padding(padding: EdgeInsets.all(5)),
                 GestureDetector(
-                  child: Column(
+                  child: const Column(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(
@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                   // onTap: () => ,
                 ),
                 GestureDetector(
-                  child: Column(
+                  child: const Column(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(
@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                   // onTap: () => ,
                 ),
                 GestureDetector(
-                  child: Column(
+                  child: const Column(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(
@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                   // onTap: () => ,
                 ),
                 GestureDetector(
-                  child: Column(
+                  child: const Column(
                     children: [
                       Padding(
                         padding: EdgeInsets.only(
@@ -139,8 +139,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            Padding(padding: EdgeInsets.all(10)),
-            Padding(
+            const Padding(padding: EdgeInsets.all(10)),
+            const Padding(
               padding: EdgeInsets.only(left: 25),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -169,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                 ], // SABICARE Your All-in-one ENT App
               ),
             ),
-            Container(
+            SizedBox(
               width: 200,
               child: LitElevatedCard(
                 borderRadius: BorderRadius.circular(12),
@@ -207,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                     ]),
               ),
             ),
-            Container(
+            SizedBox(
               width: 200,
               child: LitElevatedCard(
                 borderRadius: BorderRadius.circular(12),

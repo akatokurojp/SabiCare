@@ -97,8 +97,8 @@ class _ForgorPage extends State<ForgorPage> {
             ),
             MaterialButton(
               onPressed: passwordReset,
-              child: const Text('Reset Password'),
               color: Colors.deepPurple[200],
+              child: const Text('Reset Password'),
             ),
 
             //password textfield

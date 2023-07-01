@@ -85,7 +85,7 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                         borderRadius: BorderRadius.circular(12),
                         side: const BorderSide(width: 1, color: Colors.black)),
                     child: Padding(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                         left: 12,
                       ),
                       child: DateTimeField(
@@ -206,10 +206,10 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                   onTap: () {},
                   child: Container(
                       decoration: BoxDecoration(
-                          color: Color(0xff457B9D),
+                          color: const Color(0xff457B9D),
                           borderRadius: BorderRadius.circular(12)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
+                      child: const Padding(
+                        padding: EdgeInsets.all(20.0),
                         child: Center(
                             child: Text(
                           "Submit",

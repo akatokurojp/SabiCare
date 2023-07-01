@@ -15,8 +15,8 @@ class _ChatLogPageState extends State<ChatLogPage> {
       appBar: topBar("Messages"),
       body: SafeArea(
           child: ListView(
-        children: [
-          const Padding(
+        children: const [
+          Padding(
               padding: EdgeInsets.all(8),
               child: Card(
                 child: ListTile(
