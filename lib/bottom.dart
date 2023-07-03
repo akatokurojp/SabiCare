@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:sabicare/Chat.dart';
 import 'package:sabicare/Login.dart';
 import 'package:sabicare/booking.dart';
 import 'package:sabicare/chatlog.dart';
 import 'package:sabicare/consul.dart';
+import 'package:sabicare/doctorDetails.dart';
+import 'package:sabicare/feature.dart';
 import 'package:sabicare/home.dart';
 import 'package:sabicare/transactHistory.dart';
+import 'package:sabicare/userDetails.dart';
 
 class BottomPage extends StatefulWidget {
   const BottomPage({super.key});
@@ -30,6 +32,9 @@ class _BottomPageState extends State<BottomPage> {
     const ConsultationPage(),
     const ChatLogPage(),
     const TransactionHistoryPage(),
+    const CompleteFeaturePage(),
+    const UserDetailsPage(),
+    const DoctorDetailsPage()
   ];
   @override
   Widget build(BuildContext context) {
@@ -58,20 +63,23 @@ class _BottomPageState extends State<BottomPage> {
             currentIndex: _selectedIndex,
             onTap: _navigateBottomBar,
             type: BottomNavigationBarType.fixed,
-            items: [
-              const BottomNavigationBarItem(
+            items: const [
+              BottomNavigationBarItem(
                   icon: Icon(Icons.home_outlined), label: 'Home'),
-              const BottomNavigationBarItem(
+              BottomNavigationBarItem(
                   icon: Icon(Icons.list_alt_outlined), label: 'Home'),
-              const BottomNavigationBarItem(
+              BottomNavigationBarItem(
                   icon: Icon(Icons.message_outlined), label: 'Home'),
-              const BottomNavigationBarItem(
+              BottomNavigationBarItem(
                   icon: Icon(Icons.person_outline), label: 'Home'),
-              const BottomNavigationBarItem(
+              BottomNavigationBarItem(
                   icon: Icon(Icons.format_list_numbered_rtl_sharp),
                   label: 'Home'),
-              const BottomNavigationBarItem(
-                  icon: Icon(Icons.history), label: 'Home'),
+              BottomNavigationBarItem(icon: Icon(Icons.history), label: 'Home'),
+              BottomNavigationBarItem(icon: Icon(Icons.window), label: 'Home'),
+              BottomNavigationBarItem(icon: Icon(Icons.details), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.account_circle), label: 'Home'),
             ],
           ),
         ),

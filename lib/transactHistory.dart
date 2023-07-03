@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:lit_ui_kit/containers.dart';
 import 'package:sabicare/static/colors.dart';
 
@@ -19,7 +17,7 @@ class _TransactionHistoryPageState extends State<TransactionHistoryPage> {
       body: SafeArea(
           child: ListView(
         children: [
-          Container(
+          SizedBox(
             width: 200,
             child: LitElevatedCard(
               borderRadius: BorderRadius.circular(12),
@@ -41,21 +39,21 @@ class _TransactionHistoryPageState extends State<TransactionHistoryPage> {
                         style: TextStyle(fontSize: 18, fontFamily: 'quicksand'),
                       ),
                     ),
-                    Padding(padding: EdgeInsets.only(top: 14)),
+                    const Padding(padding: EdgeInsets.only(top: 14)),
                     Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                       Column(
                         children: [
-                          Text(
+                          const Text(
                             "Invoice",
                             style:
                                 TextStyle(fontSize: 18, color: grayTextColor),
                           ),
-                          Text("Rp. 100.000,00"),
-                          SizedBox(
+                          const Text("Rp. 100.000,00"),
+                          const SizedBox(
                             height: 8,
                           ),
                           Container(
-                              padding: EdgeInsets.only(top: 1, right: 1),
+                              padding: const EdgeInsets.only(top: 1, right: 1),
                               child: ElevatedButton(
                                 style: ButtonStyle(
                                     shape: MaterialStateProperty.all<
@@ -63,10 +61,10 @@ class _TransactionHistoryPageState extends State<TransactionHistoryPage> {
                                         RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12.0),
                                     )),
-                                    backgroundColor: MaterialStatePropertyAll(
+                                    backgroundColor: const MaterialStatePropertyAll(
                                         Colors.blueGrey)),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
+                                child: const Padding(
+                                  padding: EdgeInsets.only(
                                       right: 32, left: 32),
                                   child: Text(
                                     "Review",

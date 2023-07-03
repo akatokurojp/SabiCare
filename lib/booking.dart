@@ -87,7 +87,7 @@ class _BookingPageState extends State<BookingPage> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Card(
+                      const Card(
                         elevation: 0,
                         child: ListTile(
                           leading: CircleAvatar(
@@ -99,9 +99,9 @@ class _BookingPageState extends State<BookingPage> {
                           // trailing: Icon(Icons.more_vert),
                         ),
                       ),
-                      Row(
+                      const Row(
                         children: [
-                          const Padding(
+                          Padding(
                             padding: EdgeInsets.only(top: 5, bottom: 5),
                             child: Text(
                               "Schedule: ",
@@ -112,9 +112,9 @@ class _BookingPageState extends State<BookingPage> {
                           // insert schedule data
                         ],
                       ),
-                      Row(
+                      const Row(
                         children: [
-                          const Padding(
+                          Padding(
                             padding: EdgeInsets.only(top: 5, bottom: 5),
                             child: Text(
                               "Availibility: ",
@@ -129,15 +129,15 @@ class _BookingPageState extends State<BookingPage> {
                       Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               "17:00 - 20:00",
                               style: TextStyle(fontSize: 18),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 4,
                             ),
                             Container(
-                                padding: EdgeInsets.only(top: 1, right: 1),
+                                padding: const EdgeInsets.only(top: 1, right: 1),
                                 child: ElevatedButton(
                                   style: ButtonStyle(
                                       shape: MaterialStateProperty.all<
@@ -146,10 +146,10 @@ class _BookingPageState extends State<BookingPage> {
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                       )),
-                                      backgroundColor: MaterialStatePropertyAll(
+                                      backgroundColor: const MaterialStatePropertyAll(
                                           Colors.blueGrey)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
+                                  child: const Padding(
+                                    padding: EdgeInsets.only(
                                         right: 32, left: 32),
                                     child: Text(
                                       "Available",
