@@ -24,7 +24,6 @@ class _SpeechScreenState extends State<SpeechScreen> {
   scrollMethod() {
     scrollController.animateTo(scrollController.position.maxScrollExtent,
         duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
-        duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
   }
 
   @override
