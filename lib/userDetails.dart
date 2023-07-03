@@ -213,47 +213,56 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                       style: detailText(),
                     ),
                   ),
-                  detailSpacing(),
+                  // detailSpacing(),
                   Card(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                           side:
                               const BorderSide(width: 1, color: Colors.black)),
-                      child: const Padding(
+                      child: Padding(
                         padding: EdgeInsets.only(
                           left: 12,
                         ),
                         child: TextField(
-                          style: TextStyle(fontSize: 15),
+                          keyboardType: TextInputType.multiline,
+                          maxLines: null,
+                          style: const TextStyle(fontSize: 15),
                           decoration: InputDecoration(
                             border: InputBorder.none,
-                            suffixIcon: CircleAvatar(
-                              backgroundColor: Colors.transparent,
-                              child: Text(
-                                " ",
-                                style: TextStyle(color: Colors.black),
-                              ),
+                            suffixIcon: GestureDetector(
+                              onTap: () {},
+                              child: const CircleAvatar(
+                                  backgroundColor: Colors.transparent,
+                                  child: Icon(
+                                    Icons.add,
+                                    size: 28,
+                                    color: Colors.black,
+                                  )),
                             ),
                           ),
                         ),
                       )),
                   detailSpacing(),
+                  detailSpacing(),
                   GestureDetector(
                     onTap: () {},
                     child: Container(
                         decoration: BoxDecoration(
-                            color: Color(0xff457B9D),
+                            color: signInColor,
                             borderRadius: BorderRadius.circular(12)),
                         child: Padding(
                           padding: const EdgeInsets.all(20.0),
-                          child: Center(
-                              child: Text(
-                            "Submit",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                            ),
-                          )),
+                          child: GestureDetector(
+                            onTap: () {},
+                            child: const Center(
+                                child: Text(
+                              "Submit",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                              ),
+                            )),
+                          ),
                         )),
                   ),
                 ],

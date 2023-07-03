@@ -137,7 +137,8 @@ class _BookingPageState extends State<BookingPage> {
                               height: 4,
                             ),
                             Container(
-                                padding: const EdgeInsets.only(top: 1, right: 1),
+                                padding:
+                                    const EdgeInsets.only(top: 1, right: 1),
                                 child: ElevatedButton(
                                   style: ButtonStyle(
                                       shape: MaterialStateProperty.all<
@@ -146,11 +147,12 @@ class _BookingPageState extends State<BookingPage> {
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                       )),
-                                      backgroundColor: const MaterialStatePropertyAll(
-                                          Colors.blueGrey)),
+                                      backgroundColor:
+                                          const MaterialStatePropertyAll(
+                                              Colors.blueGrey)),
                                   child: const Padding(
-                                    padding: EdgeInsets.only(
-                                        right: 32, left: 32),
+                                    padding:
+                                        EdgeInsets.only(right: 32, left: 32),
                                     child: Text(
                                       "Available",
                                       style: TextStyle(fontSize: 15),
