@@ -33,8 +33,8 @@ class _BottomPageState extends State<BottomPage> {
     const ChatLogPage(),
     const TransactionHistoryPage(),
     const CompleteFeaturePage(),
-    const UserDetailsPage(),
-    const DoctorDetailsPage()
+    // const UserDetailsPage(),
+    // const DoctorDetailsPage()
   ];
   @override
   Widget build(BuildContext context) {
@@ -68,18 +68,18 @@ class _BottomPageState extends State<BottomPage> {
                   icon: Icon(Icons.home_outlined), label: 'Home'),
               // BottomNavigationBarItem(
               //     icon: Icon(Icons.list_alt_outlined), label: 'Home'),
-              // BottomNavigationBarItem(
-              //     icon: Icon(Icons.message_outlined), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.message_outlined), label: 'Home'),
               // BottomNavigationBarItem(
               //     icon: Icon(Icons.person_outline), label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.format_list_numbered_rtl_sharp),
-                  label: 'Home'),
+              // BottomNavigationBarItem(
+              //     icon: Icon(Icons.format_list_numbered_rtl_sharp),
+              //     label: 'Home'),
               BottomNavigationBarItem(icon: Icon(Icons.history), label: 'Home'),
               BottomNavigationBarItem(icon: Icon(Icons.window), label: 'Home'),
-              BottomNavigationBarItem(icon: Icon(Icons.details), label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.account_circle), label: 'Home'),
+              // BottomNavigationBarItem(icon: Icon(Icons.details), label: 'Home'),
+              // BottomNavigationBarItem(
+              //     icon: Icon(Icons.account_circle), label: 'Home'),
             ],
           ),
         ),

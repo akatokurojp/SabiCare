@@ -268,6 +268,8 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                 ],
               ),
             ),
+            detailSpacing(),
+            detailSpacing(),
           ],
         ),
       ),

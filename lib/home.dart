@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lit_ui_kit/lit_ui_kit.dart';
+import 'package:sabicare/Chat.dart';
 import 'package:sabicare/booking.dart';
 import 'package:sabicare/chatlog.dart';
 import 'package:sabicare/consul.dart';
+import 'package:sabicare/feature.dart';
 import 'package:sabicare/static/colors.dart';
 
 import 'Controllers/authcontroller.dart';
@@ -84,7 +86,13 @@ class _HomePageState extends State<HomePage> {
                       Text("Diagnose", style: TextStyle(color: Colors.white))
                     ],
                   ),
-                  // onTap: () => ,
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SpeechScreen(),
+                        ));
+                  },
                 ),
                 GestureDetector(
                   child: const Column(
@@ -150,7 +158,13 @@ class _HomePageState extends State<HomePage> {
                       Text("Features", style: TextStyle(color: Colors.white))
                     ],
                   ),
-                  // onTap: () => ,
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CompleteFeaturePage(),
+                        ));
+                  },
                 ),
               ],
             ),
@@ -254,7 +268,13 @@ class _HomePageState extends State<HomePage> {
                                   style: TextStyle(fontSize: 15),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const BookingPage(),
+                                    ));
+                              },
                             ))
                       ])
                     ]),
