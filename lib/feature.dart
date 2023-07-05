@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:sabicare/booking.dart';
 import 'package:sabicare/static/colors.dart';
+import 'package:sabicare/userDetails.dart';
 
 class CompleteFeaturePage extends StatefulWidget {
   const CompleteFeaturePage({super.key});
@@ -127,11 +129,11 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                           child: Text('ftr'),
                         ),
                       ),
-                      Text("All", style: TextStyle(color: Colors.white)),
-                      Text("Features", style: TextStyle(color: Colors.white))
+                      Text("Drug", style: TextStyle(color: Colors.white)),
+                      Text("Store", style: TextStyle(color: Colors.white))
                     ],
                   ),
-                  // onTap: () => ,
+                  // onTap: () {} ,
                 ),
               ],
             ),
@@ -196,7 +198,13 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 4.0),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const BookingPage(),
+                          ));
+                    },
                     child: ListTile(
                       leading: CircleAvatar(
                           radius: 30,
@@ -268,7 +276,13 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 4, top: 8),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const UserDetailsPage(),
+                          ));
+                    },
                     child: ListTile(
                       leading: CircleAvatar(
                           radius: 30,
