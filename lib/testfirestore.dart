@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
 Future<String?> getDocumentId(String email) async {
   QuerySnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
       .instance
-      .collection('user')
+      .collection('users')
       .where('email', isEqualTo: email)
       .get();
 
