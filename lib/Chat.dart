@@ -30,20 +30,7 @@ class _SpeechScreenState extends State<SpeechScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: const Icon(
-          Icons.keyboard_return_rounded,
-          color: Colors.white,
-          size: 32,
-        ),
-        centerTitle: true,
-        backgroundColor: bgColor,
-        elevation: 0,
-        title: const Text(
-          "Diagnose Yourself ! ",
-          style: TextStyle(fontWeight: FontWeight.w600, color: textColor),
-        ),
-      ),
+      appBar: topBar("Diagnose Yourself !", context),
       body: Container(
         padding: const EdgeInsets.only(top: 16),
         child: Column(
