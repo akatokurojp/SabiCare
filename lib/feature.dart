@@ -67,10 +67,11 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                         padding: EdgeInsets.only(
                             bottom: 3, top: 5, right: 10, left: 10),
                         child: CircleAvatar(
-                          radius: 32,
-                          backgroundColor: Colors.white,
-                          child: Text('Self '),
-                        ),
+                            radius: 30,
+                            child: Icon(
+                              Icons.accessibility_new,
+                              size: 30,
+                            )),
                       ),
                       Text(
                         "Self",
@@ -88,10 +89,11 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                         padding: EdgeInsets.only(
                             bottom: 3, top: 5, right: 10, left: 10),
                         child: CircleAvatar(
-                          radius: 32,
-                          backgroundColor: Colors.white,
-                          child: Text('Appt'),
-                        ),
+                            radius: 30,
+                            child: Icon(
+                              Icons.calendar_month,
+                              size: 30,
+                            )),
                       ),
                       Text("Set an", style: TextStyle(color: Colors.white)),
                       Text("Appointment", style: TextStyle(color: Colors.white))
@@ -106,10 +108,11 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                         padding: EdgeInsets.only(
                             bottom: 3, top: 5, right: 10, left: 10),
                         child: CircleAvatar(
-                          radius: 32,
-                          backgroundColor: Colors.white,
-                          child: Text('Chat'),
-                        ),
+                            radius: 30,
+                            child: Icon(
+                              Icons.medical_information,
+                              size: 30,
+                            )),
                       ),
                       Text("Chat", style: TextStyle(color: Colors.white)),
                       Text("with Doctor", style: TextStyle(color: Colors.white))
@@ -124,10 +127,11 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                         padding: EdgeInsets.only(
                             bottom: 3, top: 5, right: 10, left: 10),
                         child: CircleAvatar(
-                          radius: 32,
-                          backgroundColor: Colors.white,
-                          child: Text('ftr'),
-                        ),
+                            radius: 30,
+                            child: Icon(
+                              Icons.store,
+                              size: 30,
+                            )),
                       ),
                       Text("Drug", style: TextStyle(color: Colors.white)),
                       Text("Store", style: TextStyle(color: Colors.white))
