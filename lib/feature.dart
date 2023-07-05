@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:sabicare/static/colors.dart';
 
-
 class CompleteFeaturePage extends StatefulWidget {
   const CompleteFeaturePage({super.key});
 
@@ -15,7 +14,7 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: topBar("Complete App Features"),
+      appBar: topBar("Complete App Features", context),
       backgroundColor: bgColor,
       body: SafeArea(
           child: SafeArea(

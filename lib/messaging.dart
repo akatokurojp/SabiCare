@@ -12,7 +12,7 @@ class _MessagingPageState extends State<MessagingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: topBar("Messaging page"),
+      appBar: topBar("Messaging page", context),
       body: SafeArea(
         child: ListView(),
       ),

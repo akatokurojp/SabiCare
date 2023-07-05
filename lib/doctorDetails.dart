@@ -19,7 +19,7 @@ class _DoctorDetailsPageState extends State<DoctorDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: topBar("Doctor Details Form"),
+      appBar: topBar("Doctor Details Form", context),
       body: SafeArea(
           child: ListView(
         children: [

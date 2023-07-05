@@ -12,7 +12,7 @@ class _ChatLogPageState extends State<ChatLogPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: topBar("Messages"),
+      appBar: topBar("Messages", context),
       body: SafeArea(
           child: ListView(
         children: const [

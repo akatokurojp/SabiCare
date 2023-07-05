@@ -14,7 +14,7 @@ class _BookingPageState extends State<BookingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: topBar("Set appointment"),
+      appBar: topBar("Set appointment", context),
       body: SafeArea(
         child: ListView(
           children: <Widget>[

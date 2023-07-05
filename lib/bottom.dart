@@ -27,9 +27,9 @@ class _BottomPageState extends State<BottomPage> {
 
   final List<Widget> _pages = [
     const HomePage(),
-    const LoginPage(),
-    const BookingPage(),
-    const ConsultationPage(),
+    // const LoginPage(),
+    // const BookingPage(),
+    // const ConsultationPage(),
     const ChatLogPage(),
     const TransactionHistoryPage(),
     const CompleteFeaturePage(),
@@ -66,12 +66,12 @@ class _BottomPageState extends State<BottomPage> {
             items: const [
               BottomNavigationBarItem(
                   icon: Icon(Icons.home_outlined), label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.list_alt_outlined), label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.message_outlined), label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.person_outline), label: 'Home'),
+              // BottomNavigationBarItem(
+              //     icon: Icon(Icons.list_alt_outlined), label: 'Home'),
+              // BottomNavigationBarItem(
+              //     icon: Icon(Icons.message_outlined), label: 'Home'),
+              // BottomNavigationBarItem(
+              //     icon: Icon(Icons.person_outline), label: 'Home'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.format_list_numbered_rtl_sharp),
                   label: 'Home'),

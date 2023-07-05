@@ -19,7 +19,7 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: topBar("User Details Form"),
+      appBar: topBar("User Details Form", context),
       body: SafeArea(
         child: ListView(
           children: [

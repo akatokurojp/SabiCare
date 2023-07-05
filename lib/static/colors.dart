@@ -10,9 +10,18 @@ const fadeGray = Color.fromARGB(255, 209, 209, 209);
 const topBackButton =
     Icon(Icons.keyboard_return_rounded, color: Colors.white, size: 32);
 
-AppBar topBar(String ab) {
+AppBar topBar(String ab, BuildContext context) {
   return AppBar(
-    leading: topBackButton,
+    leading: GestureDetector(
+      onTap: () {
+        Navigator.pop(context);
+      },
+      child: Icon(
+        Icons.keyboard_return_rounded,
+        color: Colors.white,
+        size: 32,
+      ),
+    ),
     centerTitle: true,
     backgroundColor: bgColor,
     elevation: 0,

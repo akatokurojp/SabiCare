@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lit_ui_kit/lit_ui_kit.dart';
+import 'package:sabicare/booking.dart';
+import 'package:sabicare/chatlog.dart';
+import 'package:sabicare/consul.dart';
 import 'package:sabicare/static/colors.dart';
 
 import 'Controllers/authcontroller.dart';
@@ -99,7 +102,13 @@ class _HomePageState extends State<HomePage> {
                       Text("Appointment", style: TextStyle(color: Colors.white))
                     ],
                   ),
-                  // onTap: () => ,
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const BookingPage(),
+                        ));
+                  },
                 ),
                 GestureDetector(
                   child: const Column(
@@ -117,7 +126,13 @@ class _HomePageState extends State<HomePage> {
                       Text("with Doctor", style: TextStyle(color: Colors.white))
                     ],
                   ),
-                  // onTap: () => ,
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ConsultationPage(),
+                        ));
+                  },
                 ),
                 GestureDetector(
                   child: const Column(
