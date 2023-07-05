@@ -20,14 +20,20 @@ class _MyAppState extends State<MyApp> {
   String email = 'wibi@wibi.com';
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: Future.wait([getDocumentId(email)]),
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
-        return Center(
-          child: Text(snapshot.data),
-        );
-      },
-    );
+    return const MaterialApp(
+        home: Scaffold(
+      //         body: FutureBuilder(
+      //   future: Future.wait([getDocumentId(email)]),
+      //   builder: (BuildContext context, AsyncSnapshot snapshot) {
+      //     return Center(
+      //       child: Text(snapshot.data),
+      //     );
+      //   },
+      // )
+      body: Center(
+        child: Text('data'),
+      ),
+    ));
   }
 }
 
