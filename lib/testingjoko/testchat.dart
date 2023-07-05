@@ -70,13 +70,7 @@ class _ChatState extends State<Chat> {
                   itemCount: documents.length,
                   itemBuilder: (BuildContext context, int index) {
                     Map<String, dynamic> data = documents[index].data();
-                    // return Row(
-                    //   mainAxisAlignment: data['sender'] == 'doctor'
-                    //       ? MainAxisAlignment.start
-                    //       : MainAxisAlignment.end,
-                    //   crossAxisAlignment: CrossAxisAlignment.start,
-                    //   children: [],
-                    // );
+
                     return ListTile(
                       title: const Text("Sender"),
                       // subtitle: Text(data['sender']),
