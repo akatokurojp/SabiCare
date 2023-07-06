@@ -5,6 +5,8 @@ import 'package:sabicare/booking.dart';
 import 'package:sabicare/static/colors.dart';
 import 'package:sabicare/userDetails.dart';
 
+import 'consul.dart';
+
 class CompleteFeaturePage extends StatefulWidget {
   const CompleteFeaturePage({super.key});
 
@@ -118,7 +120,13 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                       Text("with Doctor", style: TextStyle(color: Colors.white))
                     ],
                   ),
-                  // onTap: () => ,
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ConsultationPage(),
+                        ));
+                  },
                 ),
                 GestureDetector(
                   child: Column(
