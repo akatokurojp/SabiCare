@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:sabicare/booking.dart';
 import 'package:sabicare/static/colors.dart';
+import 'package:sabicare/testingjoko/testchat.dart';
 import 'package:sabicare/userDetails.dart';
 
 import 'consul.dart';
@@ -166,7 +167,13 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 4, top: 8),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Chat(),
+                          ));
+                    },
                     child: ListTile(
                       leading: CircleAvatar(
                           radius: 30,
