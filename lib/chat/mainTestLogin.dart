@@ -14,7 +14,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: 'Material App', home: Login());
+    return const MaterialApp(
+        title: 'Material App',
+        debugShowCheckedModeBanner: false,
+        home: Login());
   }
 }
 
@@ -51,9 +54,9 @@ class _LoginState extends State<Login> {
                 obscureText: true,
               ),
               ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     try {
-                      FirebaseAuth.instance.signInWithEmailAndPassword(
+                      await FirebaseAuth.instance.signInWithEmailAndPassword(
                           email: emailController.text,
                           password: passController.text);
                       Navigator.push(

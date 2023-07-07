@@ -45,8 +45,8 @@ class _ListChatState extends State<ListChat> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          FirebaseAuth.instance.signOut();
+        onPressed: () async {
+          await FirebaseAuth.instance.signOut();
           Navigator.pop(context);
         },
       ),
