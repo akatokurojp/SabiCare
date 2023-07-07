@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lit_ui_kit/containers.dart';
 import 'package:sabicare/static/colors.dart';
 
 class TestChat extends StatefulWidget {
@@ -20,6 +21,7 @@ class TestChat extends StatefulWidget {
 class _TestChatState extends State<TestChat> {
   late Future<DocumentSnapshot<Map<String, dynamic>>> responder;
   late Future<void> fetchData;
+  TextEditingController inputController = TextEditingController();
 
   @override
   void initState() {
@@ -29,10 +31,6 @@ class _TestChatState extends State<TestChat> {
 
   @override
   Widget build(BuildContext context) {
-    // var doctorData = FirebaseFirestore.instance
-    //     .collection('doctor')
-    //     .doc(widget.doctorId)
-    //     .get();
     return FutureBuilder<void>(
         future: fetchData,
         builder: (context, snapshot) {
@@ -97,6 +95,28 @@ class _TestChatState extends State<TestChat> {
                       }
                       return const CircularProgressIndicator();
                     },
+                  ),
+                ),
+                LitElevatedCard(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 3, bottom: 1),
+                    child: TextField(
+                      controller: inputController,
+                      onSubmitted: (text) {
+                        FirebaseFirestore.instance
+                            .collection('chats')
+                            .doc(widget.chatId)
+                            .collection('messages')
+                            .add({
+                          'sender': FirebaseAuth.instance.currentUser!.uid,
+                          'text': text,
+                          'time': DateTime.now()
+                        });
+                        setState(() {
+                          inputController.clear();
+                        });
+                      },
+                    ),
                   ),
                 )
               ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:sabicare/chat/mainListChat.dart';
+import 'package:sabicare/chat/ListChat.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
