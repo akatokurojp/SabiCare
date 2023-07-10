@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
+import 'package:lit_ui_kit/containers.dart';
+import 'package:sabicare/static/colors.dart';
 import 'chatWithSpecificDoctor.dart';
 
 // void main() async {
@@ -44,14 +46,22 @@ class _ListChatState extends State<ListChat> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await FirebaseAuth.instance.signOut();
-          Navigator.pop(context);
-        },
-      ),
+      backgroundColor: bgColor,
       appBar: AppBar(
-        title: const Text('Material App Bar'),
+        elevation: 0,
+        backgroundColor: bgColor,
+        leading: GestureDetector(
+          onTap: () async {
+            await FirebaseAuth.instance.signOut();
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.keyboard_return_rounded,
+            color: Colors.white,
+            size: 32,
+          ),
+        ),
+        title: const Text('Messages'),
       ),
       body: FutureBuilder<void>(
           future: fetchData,
@@ -106,10 +116,24 @@ class _ListChatState extends State<ListChat> {
                                 }
                                 if (snapshot.hasData) {
                                   return GestureDetector(
-                                    child: ListTile(
-                                      title: Text(respondData?['nama']),
-                                      subtitle: Text(
-                                          (respondData?['umur']).toString()),
+                                    child: LitElevatedCard(
+                                      margin: EdgeInsets.all(4),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(4),
+                                        child: ListTile(
+                                          tileColor: textColor,
+                                          leading: CircleAvatar(
+                                            radius: 25,
+                                            child: Icon(
+                                              Icons.person,
+                                              size: 32,
+                                            ),
+                                          ),
+                                          title: Text(respondData?['nama']),
+                                          subtitle: Text((respondData?['umur'])
+                                              .toString()),
+                                        ),
+                                      ),
                                     ),
                                     onTap: () {
                                       Navigator.push(

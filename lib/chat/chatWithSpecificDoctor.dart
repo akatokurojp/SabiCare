@@ -35,7 +35,20 @@ class _TestChatState extends State<TestChat> {
         future: fetchData,
         builder: (context, snapshot) {
           return Scaffold(
+            backgroundColor: bgColor,
             appBar: AppBar(
+              elevation: 0,
+              backgroundColor: bgColor,
+              leading: GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(
+                  Icons.keyboard_return_rounded,
+                  color: Colors.white,
+                  size: 32,
+                ),
+              ),
               title: FutureBuilder(
                   future: responder,
                   builder: (context, snapshot) {
@@ -47,7 +60,7 @@ class _TestChatState extends State<TestChat> {
             ),
             body: Column(
               children: [
-                Expanded(
+                Flexible(
                   child: StreamBuilder(
                     stream: FirebaseFirestore.instance
                         .collection('chats')
@@ -60,62 +73,88 @@ class _TestChatState extends State<TestChat> {
                         List<DocumentSnapshot> chat = snapshot.data.docs;
                         // print(chat.runtimeType);
                         // return Container();
-                        return ListView.builder(
-                          itemCount: chat.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            Map<String, dynamic> data =
-                                chat[index].data() as Map<String, dynamic>;
-                            print(data);
-                            List<Widget> rowWidget = [
-                              AvatarBubble(data['sender']),
-                              SpacingBubble(),
-                              MessageBubble(data['text'], data['sender'])
-                            ];
+                        return Padding(
+                          padding: EdgeInsets.only(left: 8, right: 8),
+                          child: Container(
+                            color: textColor,
+                            child: ListView.builder(
+                              itemCount: chat.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                Map<String, dynamic> data =
+                                    chat[index].data() as Map<String, dynamic>;
+                                print(data);
+                                List<Widget> rowWidget = [
+                                  AvatarBubble(data['sender']),
+                                  SpacingBubble(),
+                                  MessageBubble(data['text'], data['sender'])
+                                ];
 
-                            return Container(
-                              margin: const EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 12),
-                              child: data['sender'] !=
-                                      FirebaseAuth.instance.currentUser!.uid
-                                  ? Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: rowWidget,
-                                    )
-                                  : Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: (rowWidget.reversed).toList()),
-                            );
-                          },
+                                return Container(
+                                  // padding: EdgeInsets.only(left: 12, right: 12),
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 12),
+                                  child: data['sender'] !=
+                                          FirebaseAuth.instance.currentUser!.uid
+                                      ? Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: rowWidget,
+                                        )
+                                      : Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children:
+                                              (rowWidget.reversed).toList()),
+                                );
+                              },
+                            ),
+                          ),
                         );
                       }
                       return const CircularProgressIndicator();
                     },
                   ),
                 ),
-                LitElevatedCard(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 3, bottom: 1),
-                    child: TextField(
-                      controller: inputController,
-                      onSubmitted: (text) {
-                        FirebaseFirestore.instance
-                            .collection('chats')
-                            .doc(widget.chatId)
-                            .collection('messages')
-                            .add({
-                          'sender': FirebaseAuth.instance.currentUser!.uid,
-                          'text': text,
-                          'time': DateTime.now()
-                        });
-                        setState(() {
-                          inputController.clear();
-                        });
-                      },
+                Padding(
+                  padding: const EdgeInsets.only(
+                      bottom: 8, top: 0, left: 3, right: 3),
+                  child: Card(
+                    color: Colors.transparent,
+                    elevation: 0,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: textColor,
+                        border: Border.all(width: 2),
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(12),
+                            bottomRight: Radius.circular(12)),
+                      ),
+                      padding: const EdgeInsets.only(top: 3, bottom: 1),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            right: 20, top: 12, bottom: 12, left: 20),
+                        child: TextField(
+                          controller: inputController,
+                          onSubmitted: sendText,
+                          decoration: InputDecoration(
+                            suffixIcon: GestureDetector(
+                              onTap: () {
+                                sendText(inputController.text);
+                                FocusManager.instance.primaryFocus?.unfocus();
+                              },
+                              child: Icon(
+                                Icons.send_rounded,
+                                color: grayTextColor,
+                                size: 32,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 )
@@ -123,6 +162,21 @@ class _TestChatState extends State<TestChat> {
             ),
           );
         });
+  }
+
+  void sendText(text) {
+    FirebaseFirestore.instance
+        .collection('chats')
+        .doc(widget.chatId)
+        .collection('messages')
+        .add({
+      'sender': FirebaseAuth.instance.currentUser!.uid,
+      'text': text,
+      'time': DateTime.now()
+    });
+    setState(() {
+      inputController.clear();
+    });
   }
 
   Future<void> _fetchData() async {
@@ -153,7 +207,7 @@ class _TestChatState extends State<TestChat> {
 
   SizedBox SpacingBubble() {
     return const SizedBox(
-      width: 12,
+      width: 6,
     );
   }
 
@@ -164,7 +218,7 @@ class _TestChatState extends State<TestChat> {
       decoration: BoxDecoration(
         color: sender != FirebaseAuth.instance.currentUser!.uid
             ? bgColor
-            : Colors.white,
+            : fadeGray,
         borderRadius: const BorderRadius.only(
           topRight: Radius.circular(12),
           topLeft: Radius.circular(12),
@@ -180,7 +234,7 @@ class _TestChatState extends State<TestChat> {
                 : chatBgColor,
             fontSize: 15,
             fontWeight: sender != FirebaseAuth.instance.currentUser!.uid
-                ? FontWeight.w600
+                ? FontWeight.w400
                 : FontWeight.w400),
       ),
     );
