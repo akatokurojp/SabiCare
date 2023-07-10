@@ -95,7 +95,7 @@ class _TestChatState extends State<TestChat> {
                                 return Container(
                                   // padding: EdgeInsets.only(left: 12, right: 12),
                                   margin: const EdgeInsets.symmetric(
-                                      horizontal: 12, vertical: 12),
+                                      horizontal: 12, vertical: 6),
                                   child: data['sender'] !=
                                           FirebaseAuth.instance.currentUser!.uid
                                       ? Row(
@@ -221,7 +221,7 @@ class _TestChatState extends State<TestChat> {
   Container MessageBubble(chatText, sender) {
     return Container(
       padding: const EdgeInsets.all(12),
-      margin: const EdgeInsets.only(bottom: 12),
+      margin: const EdgeInsets.only(bottom: 1),
       decoration: BoxDecoration(
         color: sender != FirebaseAuth.instance.currentUser!.uid
             ? bgColor
