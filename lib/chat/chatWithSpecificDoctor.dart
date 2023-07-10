@@ -22,7 +22,7 @@ class _TestChatState extends State<TestChat> {
   late Future<DocumentSnapshot<Map<String, dynamic>>> responder;
   late Future<void> fetchData;
   TextEditingController inputController = TextEditingController();
-
+  ScrollController chatScroll = ScrollController();
   @override
   void initState() {
     fetchData = _fetchData();
@@ -78,7 +78,10 @@ class _TestChatState extends State<TestChat> {
                           child: Container(
                             color: textColor,
                             child: ListView.builder(
+                              controller: chatScroll,
                               itemCount: chat.length,
+                              addAutomaticKeepAlives: false,
+                              addRepaintBoundaries: false,
                               itemBuilder: (BuildContext context, int index) {
                                 Map<String, dynamic> data =
                                     chat[index].data() as Map<String, dynamic>;
@@ -144,7 +147,9 @@ class _TestChatState extends State<TestChat> {
                             suffixIcon: GestureDetector(
                               onTap: () {
                                 sendText(inputController.text);
-                                FocusManager.instance.primaryFocus?.unfocus();
+                                // FocusManager.instance.primaryFocus?.unfocus();
+                                // chatScroll.jumpTo(
+                                //     chatScroll.position.maxScrollExtent);
                               },
                               child: Icon(
                                 Icons.send_rounded,
@@ -177,6 +182,8 @@ class _TestChatState extends State<TestChat> {
     setState(() {
       inputController.clear();
     });
+    FocusManager.instance.primaryFocus?.unfocus();
+    chatScroll.jumpTo(chatScroll.position.maxScrollExtent);
   }
 
   Future<void> _fetchData() async {
