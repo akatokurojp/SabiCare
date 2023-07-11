@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabicare/bottom.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:sabicare/home.dart';
@@ -47,7 +48,7 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<void> loginUser() async {
+  Future<void> loginUser(BuildContext context) async {
     final user = await _auth.signInWithEmailAndPassword(
         email: loginEmailController.text,
         password: loginPasswordController.text);
@@ -56,7 +57,11 @@ class AuthController extends GetxController {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setString("userID", user.user!.uid);
       print(user.user!.uid);
-      Get.to(const HomePage());
+      // Get.to(const HomePage());
+      // ignore: use_build_context_synchronously
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return BottomPage();
+      }));
     } else {
       print('error');
     }

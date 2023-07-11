@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lit_ui_kit/lit_ui_kit.dart';
@@ -47,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                   child: GetBuilder<AuthController>(
                     builder: (controller) {
                       return Text(
-                        "Morning, ${controller.userName.value ?? ''}",
+                        "Morning, ${FirebaseAuth.instance.currentUser!.displayName}",
                         style: const TextStyle(
                           fontSize: 18,
                           fontFamily: 'quicksand',
