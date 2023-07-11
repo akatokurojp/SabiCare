@@ -122,6 +122,54 @@ class _RegisterPageState extends State<RegisterPage> {
                                   borderSide: BorderSide(color: bgColor))),
                         ),
                       ),
+                      // nama
+                      Padding(
+                        padding: EdgeInsets.only(left: 5, right: 5),
+                        child: TextField(
+                          obscureText: true,
+                          controller: authController.nameController,
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Enter your Name",
+                              labelText: "Enter your Name",
+                              labelStyle: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
+                              icon: Icon(
+                                Icons.verified_user,
+                                color: bgColor,
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: bgColor)),
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: bgColor))),
+                        ),
+                      ),
+
+                      // Age
+                      Padding(
+                        padding: EdgeInsets.only(left: 5, right: 5),
+                        child: TextField(
+                          obscureText: true,
+                          controller: authController.ageController,
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: "Enter your Age",
+                              labelText: "Enter your Age",
+                              labelStyle: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black),
+                              icon: Icon(
+                                Icons.numbers_outlined,
+                                color: bgColor,
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: bgColor)),
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide: BorderSide(color: bgColor))),
+                        ),
+                      ),
+
                       SizedBox(
                         height: 20,
                       )

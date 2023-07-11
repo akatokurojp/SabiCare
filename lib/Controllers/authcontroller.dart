@@ -15,6 +15,8 @@ class AuthController extends GetxController {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmpasswordController =
       TextEditingController();
+  final TextEditingController ageController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
 
   // login text editing controllers
   final TextEditingController loginEmailController = TextEditingController();
@@ -31,8 +33,12 @@ class AuthController extends GetxController {
       final user = await _auth.createUserWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
       final firestore = FirebaseFirestore.instance;
-      firestore.collection('users').doc(user.user!.uid).set(
-          {"email": emailController.text, "password": passwordController.text});
+      firestore.collection('users').doc(user.user!.uid).set({
+        "email": emailController.text,
+        "password": passwordController.text,
+        "Age": ageController.text,
+        "Name": nameController.text
+      });
       if (user != null) {
         Get.to(const LoginPage());
       } else {

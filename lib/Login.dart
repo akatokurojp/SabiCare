@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:lit_ui_kit/lit_ui_kit.dart';
+import 'package:sabicare/home.dart';
 import 'package:sabicare/register.dart';
 import 'package:sabicare/static/colors.dart';
 // import 'package:flutter_icons/flutter_icons.dart';
@@ -133,6 +134,8 @@ class _LoginPageState extends State<LoginPage> {
                   GestureDetector(
                     onTap: () {
                       authController.loginUser();
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => HomePage()));
                     },
                     child: Container(
                         decoration: BoxDecoration(
