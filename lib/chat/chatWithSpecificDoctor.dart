@@ -43,7 +43,7 @@ class _TestChatState extends State<TestChat> {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.keyboard_return_rounded,
                   color: Colors.white,
                   size: 32,
@@ -74,7 +74,7 @@ class _TestChatState extends State<TestChat> {
                         // print(chat.runtimeType);
                         // return Container();
                         return Padding(
-                          padding: EdgeInsets.only(left: 8, right: 8),
+                          padding: const EdgeInsets.only(left: 8, right: 8),
                           child: Container(
                             color: textColor,
                             child: ListView.builder(
@@ -132,7 +132,7 @@ class _TestChatState extends State<TestChat> {
                       decoration: BoxDecoration(
                         color: textColor,
                         border: Border.all(width: 2),
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(12),
                             bottomRight: Radius.circular(12)),
                       ),
@@ -151,7 +151,7 @@ class _TestChatState extends State<TestChat> {
                                 // chatScroll.jumpTo(
                                 //     chatScroll.position.maxScrollExtent);
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.send_rounded,
                                 color: grayTextColor,
                                 size: 32,

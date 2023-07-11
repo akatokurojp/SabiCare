@@ -133,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                   //button sign in
                   GestureDetector(
                     onTap: () {
-                      authController.loginUser();
+                      authController.loginUser(context);
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => HomePage()));
                     },

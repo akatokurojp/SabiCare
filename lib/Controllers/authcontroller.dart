@@ -33,6 +33,7 @@ class AuthController extends GetxController {
     if (passwordConfirmed()) {
       final user = await _auth.createUserWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
+      await _auth.currentUser!.updateDisplayName(nameController.text);
       final firestore = FirebaseFirestore.instance;
       firestore.collection('users').doc(user.user!.uid).set({
         "email": emailController.text,
