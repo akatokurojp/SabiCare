@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sabicare/Login.dart';
-import 'package:sabicare/booking.dart';
+import 'package:sabicare/chat/ListChat.dart';
 import 'package:sabicare/chatlog.dart';
-import 'package:sabicare/consul.dart';
-import 'package:sabicare/doctorDetails.dart';
 import 'package:sabicare/feature.dart';
 import 'package:sabicare/home.dart';
 import 'package:sabicare/transactHistory.dart';
-import 'package:sabicare/userDetails.dart';
 
 class BottomPage extends StatefulWidget {
   const BottomPage({super.key});
@@ -30,7 +26,7 @@ class _BottomPageState extends State<BottomPage> {
     // const LoginPage(),
     // const BookingPage(),
     // const ConsultationPage(),
-    const ChatLogPage(),
+    const ListChat(),
     const TransactionHistoryPage(),
     const CompleteFeaturePage(),
     // const UserDetailsPage(),

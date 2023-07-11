@@ -132,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                   //button sign in
                   GestureDetector(
                     onTap: () {
-                      authController.loginUser();
+                      authController.loginUser(context);
                     },
                     child: Container(
                         decoration: BoxDecoration(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:sabicare/Login.dart';
 
 import 'home.dart';
 
@@ -70,14 +71,14 @@ class IntroScreen extends StatelessWidget {
                 Navigator.of(context).pushReplacement(
                   PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) =>
-                        const HomePage(),
+                        const LoginPage(),
                     transitionsBuilder:
                         (context, animation, secondaryAnimation, child) {
                       // Define your custom transition animation
                       return FadeTransition(
                         opacity: animation,
                         child:
-                            const HomePage(), // Replace with the destination page widget
+                            const LoginPage(), // Replace with the destination page widget
                       );
                     },
                   ),

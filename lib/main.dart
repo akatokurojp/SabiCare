@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:sabicare/Landing.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:sabicare/bottom.dart';
+import 'package:sabicare/landing.dart';
 import 'package:sabicare/static/colors.dart';
 
 Future main() async {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Colors.blue
         canvasColor: bgColor,
       ),
-      home: const BottomPage(),
+      home: const IntroScreen(),
     );
   }
 }
