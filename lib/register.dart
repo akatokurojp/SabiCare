@@ -154,8 +154,8 @@ class _RegisterPageState extends State<RegisterPage> {
                           controller: authController.ageController,
                           decoration: InputDecoration(
                               border: InputBorder.none,
-                              hintText: "Enter your Age",
-                              labelText: "Enter your Age",
+                              hintText: "Enter your birthday",
+                              labelText: "Enter your birthday",
                               labelStyle: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black),

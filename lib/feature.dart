@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:sabicare/Login.dart';
 import 'package:sabicare/booking.dart';
 import 'package:sabicare/static/colors.dart';
 import 'package:sabicare/testingjoko/testchat.dart';
@@ -315,6 +317,35 @@ class _CompleteFeaturePageState extends State<CompleteFeaturePage> {
                       ),
                       subtitle: Text(
                         "Set your profile",
+                        style: featureText(),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 4.0),
+                  child: GestureDetector(
+                    onTap: () async {
+                      await FirebaseAuth.instance.signOut();
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginPage(),
+                          ));
+                    },
+                    child: ListTile(
+                      leading: CircleAvatar(
+                          radius: 30,
+                          child: Icon(
+                            Icons.logout,
+                            size: 30,
+                          )),
+                      title: Text(
+                        "Logout",
+                        style: featureText(),
+                      ),
+                      subtitle: Text(
+                        "Logout from your account",
                         style: featureText(),
                       ),
                     ),

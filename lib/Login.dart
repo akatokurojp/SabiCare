@@ -134,6 +134,8 @@ class _LoginPageState extends State<LoginPage> {
                   GestureDetector(
                     onTap: () {
                       authController.loginUser(context);
+                      authController.loginEmailController.clear();
+                      authController.loginPasswordController.clear();
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => HomePage()));
                     },

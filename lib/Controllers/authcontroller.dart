@@ -38,7 +38,7 @@ class AuthController extends GetxController {
       firestore.collection('users').doc(user.user!.uid).set({
         "email": emailController.text,
         "password": passwordController.text,
-        "Age": ageController.text,
+        "birthday": ageController.text,
         "Name": nameController.text
       });
       if (user != null) {
